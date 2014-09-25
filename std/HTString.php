@@ -9,26 +9,25 @@
 namespace std;
 
 
-class String
+class HTString
 {
     private $string;
 
     public function __construct($string = '')
     {
+        if (is_string($string)) {
+            $this->string = $string;
+        } else {
 
+        }
     }
 
     public function __toString()
     {
-
+        return $this->string;
     }
 
     public function toInt()
-    {
-
-    }
-
-    public function toString()
     {
 
     }
@@ -43,7 +42,7 @@ class String
      * </p>
      * @return string the uppercased string.
      */
-    function strtoupper ()
+    function strtoupper()
     {
         $this->string = strtoupper($this->string);
         return $this;
@@ -58,7 +57,7 @@ class String
      * </p>
      * @return string the lowercased string.
      */
-    function strtolower ()
+    function strtolower()
     {
         $this->string = strtolower($this->string);
         return $this;
