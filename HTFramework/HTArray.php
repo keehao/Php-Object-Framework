@@ -6,8 +6,9 @@
  * Time: 上午12:13
  */
 
-namespace \HTFramework;
+namespace HTFramework;
 
-class HTArray extends ArrayObject{
+
+class HTArray extends \ArrayObject{
 
 } 

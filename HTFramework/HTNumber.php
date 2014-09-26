@@ -2,22 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: saligia
- * Date: 14-9-26
- * Time: 上午12:19
+ * Date: 14-9-25
+ * Time: 下午6:33
  */
 
 namespace HTFramework;
 
-
-class HTNumber
+class NTNumber
 {
-
     private $number;
+    private $current;
 
-    public function __construct($number = '')
+    public function __construct($number = 0)
     {
         if (is_numeric($number)) {
             $this->number = $number;
+            $this->current = $this->number;
         } else {
 
         }
@@ -25,7 +25,9 @@ class HTNumber
 
     public function __toString()
     {
-        return $this->number;
+        $number = $this->current;
+        $this->current = $this->number;
+        return $number;
     }
 
     public function toHTString()
@@ -35,7 +37,13 @@ class HTNumber
 
     public function toInt()
     {
-        $this->number = (int)$this->number;
+        $this->current = (int)$this->current;
+        return $this;
+    }
+
+    public function toDouble()
+    {
+        $this->current = doubleval($this->current);
         return $this;
     }
 }
