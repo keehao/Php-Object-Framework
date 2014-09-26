@@ -6,8 +6,7 @@
  * Time: 上午12:13
  */
 
-namespace std;
-use \ArrayObject;
+namespace \HTFramework;
 
 class HTArray extends ArrayObject{
 
