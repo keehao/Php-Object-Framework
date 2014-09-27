@@ -8,6 +8,7 @@
 
 namespace HTFramework;
 
+
 class HTNumber
 {
     private $number;

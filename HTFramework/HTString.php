@@ -8,6 +8,7 @@
 
 namespace HTFramework;
 
+
 class HTString
 {
     private $string;
@@ -327,13 +328,15 @@ class HTString
     }
 
     /**
-     * @param array $arr
+     * @param HTArray $arr
      * @return $this
      * @desc 把查询字符串解析到变量中。
      */
-    public function parse_str(array &$arr = null)
+    public function parse_str(&$arr = null)
     {
-        $this->current = parse_str($this->current, $arr);
+        $array = (array)$arr;
+        $this->current = parse_str($this->current, $array);
+        $arr = $array;
         return $this;
     }
 
@@ -784,13 +787,13 @@ class HTString
     }
 
     /**
-     * @param array $replace_pairs
+     * @param HTArray $replace_pairs
      * @return $this
      * @desc 转换字符串中特定的字符。
      */
-    public function strtr(array $replace_pairs)
+    public function strtr($replace_pairs)
     {
-        $this->current = strtr($this->current, $replace_pairs);
+        $this->current = strtr($this->current, (array)$replace_pairs);
         return $this;
     }
 
