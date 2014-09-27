@@ -6,10 +6,10 @@
  * Time: 下午4:15
  */
 
-namespace HTFramework;
+namespace HTFramework\Lib;
 
 
-class Local
+class HTLocal
 {
 
     /**
