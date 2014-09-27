@@ -28,20 +28,6 @@ class HTArray extends \ArrayObject
         }
     }
 
-    public function append($value)
-    {
-        parent::append($value);
-        $this->current = $this->getArrayCopy();
-        return $this;
-    }
-
-    public function __toString()
-    {
-        $array = $this->current;
-        $this->current = $this->getArrayCopy();
-        return '';
-    }
-
     public function current()
     {
         $array = $this->current;
@@ -81,7 +67,7 @@ class HTArray extends \ArrayObject
      * @return HTArray
      * @desc 通过合并两个数组来创建一个新数组。
      */
-    public function array_combine($values)
+    public function array_combine(HTArray $values)
     {
         $this->current = array_combine($this->current, (array)$values);
         return $this;
@@ -94,6 +80,39 @@ class HTArray extends \ArrayObject
     public function array_count_values()
     {
         $this->current = array_count_values($this->current);
+        return $this;
+    }
+
+    /**
+     * @param $array2
+     * @return $this
+     * @desc 返回两个数组的差集数组。
+     */
+    public function array_diff(HTArray $array2)
+    {
+        $this->current = array_diff($this->current, (array)$array2);
+        return $this;
+    }
+
+    /**
+     * @param HTArray $array2
+     * @return $this
+     * @desc 比较键名和键值，并返回两个数组的差集数组。
+     */
+    public function array_diff_assoc(HTArray $array2)
+    {
+        $this->current = array_diff_assoc($this->current, (array)$array2);
+        return $this;
+    }
+
+    /**
+     * @param HTArray $array2
+     * @return $this
+     * @desc 比较键名，并返回两个数组的差集数组。。
+     */
+    public function array_diff_key(HTArray $array2)
+    {
+        $this->current = array_diff_key($this->current, (array)$array2);
         return $this;
     }
 }
@@ -130,9 +149,6 @@ class HTArray extends \ArrayObject
  */
 
 /*
-array_diff()	返回两个数组的差集数组。	4
-array_diff_assoc()	比较键名和键值，并返回两个数组的差集数组。	4
-array_diff_key()	比较键名，并返回两个数组的差集数组。	5
 array_diff_uassoc()	通过用户提供的回调函数做索引检查来计算数组的差集。	5
 array_diff_ukey()	用回调函数对键名比较计算数组的差集。	5
 array_fill()	用给定的值填充数组。	4
@@ -175,7 +191,6 @@ array_walk_recursive()	对数组中的每个成员递归地应用用户函数。
 arsort()	对数组进行逆向排序并保持索引关系。	3
 asort()	对数组进行排序并保持索引关系。	3
 compact()	建立一个数组，包括变量名和它们的值。	4
-count()	计算数组中的元素数目或对象中的属性个数。	3
 current()	返回数组中的当前元素。	3
 each()	返回数组中当前的键／值对并将数组指针向前移动一步。	3
 end()	将数组的内部指针指向最后一个元素。	3
@@ -194,7 +209,6 @@ range()	建立一个包含指定范围的元素的数组。	3
 reset()	将数组的内部指针指向第一个元素。	3
 rsort()	对数组逆向排序。	3
 shuffle()	把数组中的元素按随机顺序重新排列。	3
-sizeof()	count() 的别名。	3
 sort()	对数组排序。	3
 uasort()	使用用户自定义的比较函数对数组中的值进行排序并保持索引关联。	3
 uksort()	使用用户自定义的比较函数对数组中的键名进行排序。	3

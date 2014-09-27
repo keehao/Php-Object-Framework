@@ -332,7 +332,7 @@ class HTString
      * @return $this
      * @desc 把查询字符串解析到变量中。
      */
-    public function parse_str(&$arr = null)
+    public function parse_str(HTArray &$arr = null)
     {
         $array = (array)$arr;
         $this->current = parse_str($this->current, $array);
@@ -791,7 +791,7 @@ class HTString
      * @return $this
      * @desc 转换字符串中特定的字符。
      */
-    public function strtr($replace_pairs)
+    public function strtr(HTArray $replace_pairs)
     {
         $this->current = strtr($this->current, (array)$replace_pairs);
         return $this;

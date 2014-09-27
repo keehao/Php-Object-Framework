@@ -18,12 +18,11 @@ echo $num->acosh()->toInt();
 
 */
 
-$a = new ArrayObject(array(5,6));
+$a = new HTArray(array(5,6));
 $arr = array(
     'A'=>2,
     'b'=>1
 );
 $b = new  HTArray($arr);
-$c = $b->array_change_key_case()->append('aa');
+$c = $b->array_combine($a)->current();
 var_dump($c);
-var_dump($b);
