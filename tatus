@@ -1,0 +1,1274 @@
+diff --git a/Framework/BLL/BaseBLL.php b/Framework/BLL/BaseBLL.php
+deleted file mode 100755
+index 9ac0eab..0000000
+--- a/Framework/BLL/BaseBLL.php
++++ /dev/null
+@@ -1,34 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-12
+- * Time: 下午9:14
+- */
+-
+-namespace Framework\BLL;
+-
+-
+-abstract class BaseBLL
+-{
+-    /**
+-     * 构造方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return \Framework\BLL\BaseBLL
+-     */
+-    abstract public function __construct();
+-
+-    /**
+-     * 析构方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return void
+-     */
+-    abstract public function __destruct();
+-
+-} 
+\ No newline at end of file
+diff --git a/Framework/BLL/Exemplo.php b/Framework/BLL/Exemplo.php
+deleted file mode 100755
+index 3ab9fe4..0000000
+--- a/Framework/BLL/Exemplo.php
++++ /dev/null
+@@ -1,54 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午11:49
+- */
+-
+-namespace Framework\BLL;
+-use Framework\System;
+-use Framework\DALFactory\DataAccess;
+-use Framework\Model\ExemploInfo;
+-
+-class Exemplo extends BaseBLL
+-{
+-    private $o_DataAccess = null;
+-    private $o_IExemplo = null;
+-    private $o_ExemploInfo = null;
+-
+-    /**
+-     * 构造方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return \Framework\BLL\Exemplo
+-     */
+-    public function __construct()
+-    {
+-        $this->o_DataAccess = new DataAccess();
+-        $this->o_IExemplo = $this->o_DataAccess->getIExemploObject();
+-        $this->o_ExemploInfo = new ExemploInfo();
+-    }
+-
+-    /**
+-     * 析构方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return void
+-     */
+-    public function __destruct()
+-    {
+-        unset($this->o_DataAccess);
+-        unset($this->o_IExemplo);
+-        unset($this->o_ExemploInfo);
+-    }
+-
+-    public function demo()
+-    {
+-        return $this->o_IExemplo->demo();
+-    }
+-} 
+\ No newline at end of file
+diff --git a/Framework/DALFactory/DataAccess.php b/Framework/DALFactory/DataAccess.php
+deleted file mode 100755
+index f3907b4..0000000
+--- a/Framework/DALFactory/DataAccess.php
++++ /dev/null
+@@ -1,26 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午10:02
+- */
+-
+-namespace Framework\DALFactory;
+-use Framework\MySQLDAL;
+-
+-class DataAccess
+-{
+-    /**
+-     * 返回Exemplo对象
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param void
+-     * @return MySQLDAL\ExemploDAL
+-     */
+-    public function getIExemploObject()
+-    {
+-        return (object)new MySQLDAL\ExemploDAL();
+-    }
+-} 
+\ No newline at end of file
+diff --git a/Framework/DBStruct/userDBS.php b/Framework/DBStruct/userDBS.php
+deleted file mode 100755
+index 88e6791..0000000
+--- a/Framework/DBStruct/userDBS.php
++++ /dev/null
+@@ -1,18 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午3:35
+- */
+-
+-namespace Framework\DBStruct;
+-use Framework\System;
+-
+-
+-class userDBS
+-{
+-    const TableName = 'user';
+-    const Field_id = 'id';
+-    const Field_name = 'name';
+-}
+\ No newline at end of file
+diff --git a/Framework/IDAL/IExemplo.php b/Framework/IDAL/IExemplo.php
+deleted file mode 100755
+index 156a539..0000000
+--- a/Framework/IDAL/IExemplo.php
++++ /dev/null
+@@ -1,23 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午11:48
+- */
+-
+-namespace Framework\IDAL;
+-
+-
+-interface IExemplo
+-{
+-    /**
+-     * 事例方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param void
+-     * @return mixed
+-     */
+-    public function demo();
+-} 
+\ No newline at end of file
+diff --git a/Framework/Message/ErrorMsg.php b/Framework/Message/ErrorMsg.php
+deleted file mode 100755
+index 5f56932..0000000
+--- a/Framework/Message/ErrorMsg.php
++++ /dev/null
+@@ -1,15 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午4:29
+- */
+-
+-namespace Framework\Message;
+-
+-
+-class ErrorMsg extends ErrorMsgEN
+-{
+-
+-} 
+\ No newline at end of file
+diff --git a/Framework/Message/ErrorMsgCN.php b/Framework/Message/ErrorMsgCN.php
+deleted file mode 100755
+index 632b59f..0000000
+--- a/Framework/Message/ErrorMsgCN.php
++++ /dev/null
+@@ -1,24 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午4:11
+- */
+-
+-namespace Framework\Message;
+-
+-
+-class ErrorMsgCN
+-{
+-    public static $s_ = 'string 类型变量以 $s_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $i_ = 'integer 类型变量以 $i_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $f_ = 'float 类型变量以 $f_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $d_ = 'double 类型变量以 $d_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $b_ = 'boolean 类型变量以 $b_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $a_ = 'array 类型变量以 $a_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $o_ = 'object 类型变量以 $o_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $r_ = 'resource 类型变量以 $r_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-    public static $n_ = 'number 类型变量以 $n_ 开头 请检查该变量"值"类型与命名规则指定类型是否相同';
+-
+-} 
+\ No newline at end of file
+diff --git a/Framework/Message/ErrorMsgEN.php b/Framework/Message/ErrorMsgEN.php
+deleted file mode 100755
+index 24011d8..0000000
+--- a/Framework/Message/ErrorMsgEN.php
++++ /dev/null
+@@ -1,15 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午4:12
+- */
+-
+-namespace Framework\Message;
+-
+-
+-class ErrorMsgEN
+-{
+-
+-}
+\ No newline at end of file
+diff --git a/Framework/Model/BaseInfo.php b/Framework/Model/BaseInfo.php
+deleted file mode 100755
+index 8a9147e..0000000
+--- a/Framework/Model/BaseInfo.php
++++ /dev/null
+@@ -1,34 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午11:49
+- */
+-
+-namespace Framework\Model;
+-
+-
+-abstract class BaseInfo
+-{
+-    /**
+-     * 设置私有属性值
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param $s_propertyName
+-     * @param $m_value
+-     * @return void
+-     */
+-    abstract public function __set($s_propertyName, $m_value);
+-
+-    /**
+-     * 获取私有属性值
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param $s_propertyName
+-     * @return $this->$s_propertyName
+-     */
+-    abstract public function __get($s_propertyName);
+-} 
+\ No newline at end of file
+diff --git a/Framework/Model/ExemploInfo.php b/Framework/Model/ExemploInfo.php
+deleted file mode 100755
+index 8b2ff09..0000000
+--- a/Framework/Model/ExemploInfo.php
++++ /dev/null
+@@ -1,65 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午11:48
+- */
+-
+-namespace Framework\Model;
+-use Framework\System\Error;
+-
+-
+-class ExemploInfo extends BaseInfo
+-{
+-    /**
+-     * 设置私有属性值
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param $s_propertyName
+-     * @param $m_value
+-     * @return void
+-     */
+-    public function __set($s_propertyName, $m_value)
+-    {
+-        if(isset($this->$s_propertyName)) {
+-            $this->$s_propertyName = $m_value;
+-        } else {
+-            Error::ErrorPrintNOTICE('Undefined property '. $s_propertyName . ' in ' . __CLASS__);
+-        }
+-    }
+-
+-    /**
+-     * 获取私有属性值
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param $s_propertyName
+-     * @return $this->$s_propertyName
+-     */
+-    public  function __get($s_propertyName)
+-    {
+-        if(isset($this->$s_propertyName)) {
+-            return($this->$s_propertyName);
+-        } else {
+-            return(null);
+-        }
+-    }
+-
+-    private $b_Boolean = true;
+-    private $i_Integer = 10;
+-    private $f_Float = 10.01;
+-    private $d_Double = 12.121212;
+-    private $s_Strings = 'php object framework';
+-
+-    private $a_Array = array('a'=>'a');
+-    private $o_Object = null;
+-
+-    private $r_Resource = null;
+-
+-    private $n_Number1 = 12.1;
+-    private $n_Number2 = 12;
+-
+-    private $m_Mixed = '';
+-}
+\ No newline at end of file
+diff --git a/Framework/MySQLDAL/BaseDAL.php b/Framework/MySQLDAL/BaseDAL.php
+deleted file mode 100755
+index 73258d4..0000000
+--- a/Framework/MySQLDAL/BaseDAL.php
++++ /dev/null
+@@ -1,113 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-12
+- * Time: 下午9:31
+- */
+-
+-namespace Framework\MySQLDAL;
+-use Framework\System\MySQLHelper;
+-
+-use Framework\System\String;
+-
+-abstract class BaseDAL
+-{
+-    /**
+-     * 构造方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return \Framework\MySQLDAL\BaseDAL
+-     */
+-    abstract public function __construct();
+-
+-    /**
+-     * 析构方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return void
+-     */
+-    abstract public function __destruct();
+-
+-    /**
+-     * 添加数据方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_tableName
+-     * @param array $a_data
+-     * @param null $s_returnFieldValue
+-     * @return mixed $m_return
+-     */
+-    public function insert($s_tableName, array $a_data, $s_returnFieldValue = null)
+-    {
+-        $a_outing['mixed'] = null;
+-        $m_return = 0;
+-        if (!is_null($s_returnFieldValue)){
+-            $a_outing['mixed'] = $s_returnFieldValue;
+-        }
+-        if ( MySQLHelper::ExecuteNonQuery('INSERT INTO ' . $s_tableName . ' SET ' . String::GetInsertString($a_data), $a_data, $a_outing)) {
+-            if (empty($a_outing['mixed'])) {
+-                $m_return = $a_outing['mixed'];
+-            } else {
+-                $m_return = $a_outing['id'];
+-            }
+-        }
+-        return $m_return;
+-    }
+-
+-    /**
+-     * 修改数据方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_tableName
+-     * @param array $a_data
+-     * @param array $a_where
+-     * @param null $s_returnCount
+-     * @return bool
+-     */
+-    public function update($s_tableName, array $a_data, array $a_where, &$s_returnCount = null)
+-    {
+-        $a_return = null;
+-        if (!is_null($s_returnCount)){
+-            $a_return['count'] = null;
+-        }
+-        if ( MySQLHelper::ExecuteNonQuery('UPDATE ' . $s_tableName . ' SET ' . String::GetUpdateString($a_data, $a_where), array_merge($a_data, $a_where), $a_return)) {
+-            if (!is_null($s_returnCount)) {
+-                $s_returnCount = $a_return['count'];
+-            }
+-            return true;
+-        }
+-        return false;
+-    }
+-
+-    /**
+-     * 删除数据方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_tableName
+-     * @param array $a_where
+-     * @param null $s_returnCount
+-     * @return bool
+-     */
+-    public function delete($s_tableName, array $a_where, &$s_returnCount = null)
+-    {
+-        $a_return = null;
+-        if (!is_null($s_returnCount)){
+-            $a_return['count'] = null;
+-        }
+-        if ( MySQLHelper::ExecuteNonQuery('DELETE FROM ' . $s_tableName . String::GetDeleteString($a_where), $a_where, $a_return) ) {
+-            if (!is_null($s_returnCount)) {
+-                $s_returnCount = $a_return['count'];
+-            }
+-            return true;
+-        }
+-        return false;
+-    }
+-} 
+\ No newline at end of file
+diff --git a/Framework/MySQLDAL/ExemploDAL.php b/Framework/MySQLDAL/ExemploDAL.php
+deleted file mode 100755
+index 25de691..0000000
+--- a/Framework/MySQLDAL/ExemploDAL.php
++++ /dev/null
+@@ -1,57 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午10:56
+- */
+-
+-namespace Framework\MySQLDAL;
+-use Framework\System\MySQLHelper;
+-use Framework\IDAL\IExemplo;
+-use Framework\Model\ExemploInfo;
+-use Framework\DBStruct\userDBS;
+-
+-class ExemploDAL extends BaseDAL implements IExemplo
+-{
+-    private $o_ExemploInfo = null;
+-
+-    /**
+-     * 构造方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return \Framework\MySQLDAL\ExemploDAL
+-     */
+-    public function __construct()
+-    {
+-        $this->o_ExemploInfo = new ExemploInfo();
+-    }
+-
+-    /**
+-     * 析构方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/11
+-     * @param void
+-     * @return void
+-     */
+-    public function __destruct()
+-    {
+-        unset($this->o_ExemploInfo);
+-    }
+-
+-    /**
+-     * 事例方法
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param void
+-     * @return mixed
+-     */
+-    public function demo()
+-    {
+-        // TODO: Implement demo() method.
+-    }
+-}
+\ No newline at end of file
+diff --git a/Framework/System/Error.php b/Framework/System/Error.php
+deleted file mode 100755
+index ebf26be..0000000
+--- a/Framework/System/Error.php
++++ /dev/null
+@@ -1,28 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午1:18
+- */
+-
+-namespace Framework\System;
+-
+-
+-class Error
+-{
+-    public static function ErrorDbActionLog($m_err)
+-    {
+-        print_r($m_err);
+-    }
+-
+-    public static function ErrorDbErrorLog($m_err)
+-    {
+-        print_r($m_err);
+-    }
+-
+-    public static function ErrorPrintNOTICE($s_err)
+-    {
+-        trigger_error( $s_err,  E_USER_NOTICE );
+-    }
+-} 
+\ No newline at end of file
+diff --git a/Framework/System/Message.php b/Framework/System/Message.php
+deleted file mode 100755
+index 1b4cf60..0000000
+--- a/Framework/System/Message.php
++++ /dev/null
+@@ -1,15 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-13
+- * Time: 下午4:11
+- */
+-
+-namespace Framework\System;
+-
+-
+-class Message
+-{
+-
+-} 
+\ No newline at end of file
+diff --git a/Framework/System/MySQLHelper.php b/Framework/System/MySQLHelper.php
+deleted file mode 100755
+index 71926d2..0000000
+--- a/Framework/System/MySQLHelper.php
++++ /dev/null
+@@ -1,148 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 上午10:06
+- */
+-
+-namespace Framework\System;
+-use PDO;
+-use PDOException;
+-
+-
+-class MySQLHelper
+-{
+-    /**
+-     * 执行insert update delete语句
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_sql
+-     * @param array $a_data
+-     * @param array $a_outing
+-     * @param string $s_connStr
+-     * @param string $s_dbUser
+-     * @param string $s_dbPwd
+-     * @return bool
+-     */
+-    public static function ExecuteNonQuery($s_sql, array $a_data, array &$a_outing = null, $s_connStr = MYSQL_PDO_CONN_STR_1, $s_dbUser = MYSQL_DB_USER_1, $s_dbPwd = MYSQL_DB_PWD_1)
+-    {
+-        $o_PDO = $o_PDOStatement = null;
+-        try {
+-            $o_PDO = new PDO(
+-                $s_connStr,
+-                $s_dbUser,
+-                $s_dbPwd,
+-                array(
+-                    /**
+-                     * 防注入
+-                     */
+-                    PDO::ATTR_EMULATE_PREPARES  =>  false
+-                )
+-            );
+-            $o_PDO->beginTransaction();
+-            $o_PDOStatement = $o_PDO->prepare($s_sql);
+-            foreach ($a_data as $s_FieldName => $s_FieldValue) {
+-                if (is_int($s_FieldValue)) {
+-                    $o_PDOStatement->bindParam($s_FieldName, $s_FieldValue, $o_PDO::PARAM_INT);
+-                } else {
+-                    $o_PDOStatement->bindParam($s_FieldName, $s_FieldValue, $o_PDO::PARAM_STR);
+-                }
+-            }
+-            $o_PDOStatement->execute();
+-            $count = $o_PDOStatement->rowCount();
+-            $o_PDO->commit();
+-            if (0 < $count) {
+-                if (!is_null($a_outing)) {
+-                    if (isset($a_outing['mixed'])){
+-                        $a_outing['mixed'] = $o_PDO->lastInsertId($a_outing['mixed']);
+-                    } else {
+-                        $a_outing['id'] = $o_PDO->lastInsertId();
+-                    }
+-                    if (isset($a_outing['count'])){
+-                        $a_outing['count'] = $count;
+-                    }
+-                }
+-                return true;
+-            }
+-        } catch (PDOException $e) {
+-            Error::ErrorDbErrorLog($e->getMessage());
+-            $o_PDO->rollBack();
+-        } finally {
+-            unset($o_PDO);
+-            unset($o_PDOStatement);
+-        }
+-        $a_outing = null;
+-        return false;
+-    }
+-
+-    /**
+-     * 执行select语句返回结果集
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_sql
+-     * @param array $a_data
+-     * @param string $s_connStr
+-     * @param string $s_dbUser
+-     * @param string $s_dbPwd
+-     * @return array
+-     */
+-    public static function SqlDataReader($s_sql, array $a_data, $s_connStr = MYSQL_PDO_CONN_STR_1, $s_dbUser = MYSQL_DB_USER_1, $s_dbPwd = MYSQL_DB_PWD_1)
+-    {
+-        try {
+-
+-        } catch (PDOException $e) {
+-
+-        } finally {
+-
+-        }
+-    }
+-
+-    /**
+-     * 执行select语句返回一行结果集
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_sql
+-     * @param array $a_data
+-     * @param string $s_connStr
+-     * @param string $s_dbUser
+-     * @param string $s_dbPwd
+-     * @return array
+-     */
+-    public static function SqlDataReaderOnly($s_sql, array $a_data, $s_connStr = MYSQL_PDO_CONN_STR_1, $s_dbUser = MYSQL_DB_USER_1, $s_dbPwd = MYSQL_DB_PWD_1)
+-    {
+-        try {
+-
+-        } catch (PDOException $e) {
+-
+-        } finally {
+-
+-        }
+-    }
+-
+-    /**
+-     * 执行select语句，返回单值
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param string $s_sql
+-     * @param array $a_data
+-     * @param string $s_connStr
+-     * @param string $s_dbUser
+-     * @param string $s_dbPwd
+-     * @return object
+-     */
+-    public static function ExecuteScalar($s_sql, array $a_data, $s_connStr = MYSQL_PDO_CONN_STR_1, $s_dbUser = MYSQL_DB_USER_1, $s_dbPwd = MYSQL_DB_PWD_1)
+-    {
+-        try {
+-
+-        } catch (PDOException $e) {
+-
+-        } finally {
+-
+-        }
+-    }
+-}
+diff --git a/Framework/System/Number.php b/Framework/System/Number.php
+deleted file mode 100755
+index f980233..0000000
+--- a/Framework/System/Number.php
++++ /dev/null
+@@ -1,15 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-11
+- * Time: 下午4:14
+- */
+-
+-namespace Framework\System;
+-
+-
+-class Number
+-{
+-
+-} 
+\ No newline at end of file
+diff --git a/Framework/System/String.php b/Framework/System/String.php
+deleted file mode 100755
+index 5773ddf..0000000
+--- a/Framework/System/String.php
++++ /dev/null
+@@ -1,53 +0,0 @@
+-<?php
+-/**
+- * Created by PhpStorm.
+- * User: saligia
+- * Date: 14-1-10
+- * Time: 下午12:07
+- */
+-
+-namespace Framework\System;
+-
+-
+-class String
+-{
+-    /**
+-     * 获取Insert语句字符串
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param array $a_data Insert语句数据
+-     * @return array $a_return 返回Insert语句需要的字符串
+-     */
+-    public static function GetInsertString($a_data)
+-    {
+-        doubleval(111.11);
+-    }
+-
+-    /**
+-     * 获取Update语句字符串
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param array $a_data Update语句数据
+-     * @param array $a_where Update语句条件
+-     * @return array $a_return 返回Update语句需要的字符串
+-     */
+-    public static function GetUpdateString(array $a_data, array $a_where)
+-    {
+-
+-    }
+-
+-    /**
+-     * 获取Delete语句字符串
+-     * @access public
+-     * @author saligia
+-     * @date 2014/01/10
+-     * @param array $a_where Delete语句条件
+-     * @return array $a_return 返回Delete语句需要的字符串
+-     */
+-    public static function GetDeleteString(array $a_where)
+-    {
+-
+-    }
+-} 
+\ No newline at end of file
+diff --git a/HTFramework/HTMath.php b/HTFramework/HTMath.php
+index fe1036e..a6f32bb 100755
+--- a/HTFramework/HTMath.php
++++ b/HTFramework/HTMath.php
+@@ -11,4 +11,31 @@ namespace HTFramework;
+ 
+ class HTMath {
+ 
++    /**
++     * @return int
++     * @desc 显示随机数最大的可能值。
++     */
++    public static function getrandmax()
++    {
++        return getrandmax();
++    }
++
++    /**
++     * @param $number
++     * @return bool
++     * @desc 判断是否为合法数值。
++     */
++    public static function is_nan($number)
++    {
++        return is_nan($number) ;
++    }
++
++    /**
++     * @return int
++     * @desc 返回范围为 (0, 1) 的一个伪随机数。。
++     */
++    public static function lcg_value()
++    {
++        return lcg_value();
++    }
+ } 
+\ No newline at end of file
+diff --git a/HTFramework/HTNumber.php b/HTFramework/HTNumber.php
+index 7497be7..9ff06ce 100755
+--- a/HTFramework/HTNumber.php
++++ b/HTFramework/HTNumber.php
+@@ -8,7 +8,7 @@
+ 
+ namespace HTFramework;
+ 
+-class NTNumber
++class HTNumber
+ {
+     private $number;
+     private $current;
+@@ -23,13 +23,6 @@ class NTNumber
+         }
+     }
+ 
+-    public function __toString()
+-    {
+-        $number = $this->current;
+-        $this->current = $this->number;
+-        return $number;
+-    }
+-
+     public function toHTString()
+     {
+         return new HTString("{$this->number}");
+@@ -37,14 +30,16 @@ class NTNumber
+ 
+     public function toInt()
+     {
+-        $this->current = (int)$this->current;
+-        return $this;
++        $number = (int)$this->current;
++        $this->current = $this->number;
++        return $number;
+     }
+ 
+     public function toDouble()
+     {
+-        $this->current = doubleval($this->current);
+-        return $this;
++        $number = doubleval($this->current);
++        $this->current = $this->number;
++        return $number;
+     }
+ 
+     /**
+@@ -59,36 +54,275 @@ class NTNumber
+         $this->current = number_format($this->current, $decimals, $dec_point, $thousands_sep);
+         return $this;
+     }
++
++    /**
++     * @return $this
++     * @desc 绝对值。
++     */
++    public function abs()
++    {
++        $this->current = abs($this->current);
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反余弦。
++     */
++    public function acos()
++    {
++        $this->current = acos($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反双曲余弦。
++     */
++    public function acosh()
++    {
++        $this->current = acosh($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反正弦。
++     */
++    public function asin()
++    {
++        $this->current = asin($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反双曲正弦。
++     */
++    public function asinh()
++    {
++        $this->current = asinh($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反正切。
++     */
++    public function atan()
++    {
++        $this->current = atan($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @param $x
++     * @return $this
++     * @desc 两个参数的反正切。
++     */
++    public function atan2($x)
++    {
++        $this->current = atan2($this->toDouble(), doubleval($x));
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 反双曲正切。
++     */
++    public function atanh()
++    {
++        $this->current = atanh($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @param $frombase
++     * @param $tobase
++     * @return $this
++     * @desc 在任意进制之间转换数字。
++     */
++    public function base_convert($frombase, $tobase)
++    {
++        $this->current = base_convert($this->current, $frombase, $tobase);
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把二进制转换为十进制。
++     */
++    public function bindec()
++    {
++        $this->current = bindec($this->current);
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把十进制转换为二进制。
++     */
++    public function decbin()
++    {
++        $this->current = decbin($this->toInt());
++        $this->current = $this->toHTString();
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把十进制转换为十六进制。
++     */
++    public function dechex()
++    {
++        $this->current = dechex($this->toInt());
++        $this->current = $this->toHTString();
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把十六进制转换为十进制。
++     */
++    public function hexdec()
++    {
++        $this->current = hexdec($this->current);
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把十进制转换为八进制。
++     */
++    public function decoct()
++    {
++        $this->current = decoct($this->toInt());
++        $this->current = $this->toHTString();
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 把八进制转换为十进制。
++     */
++    public function octdec()
++    {
++        $this->current = octdec($this->current);
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 向上舍入为最接近的整数。
++     */
++    public function ceil()
++    {
++        $this->current = ceil($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 余弦。
++     */
++    public function cos()
++    {
++        $this->current = cos($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 余弦。
++     */
++    public function cosh()
++    {
++        $this->current = cosh($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 将角度转换为弧度。
++     */
++    public function deg2rad()
++    {
++        $this->current = deg2rad($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 返回 Ex 的值。
++     */
++    public function exp()
++    {
++        $this->current = exp($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 返回 Ex - 1 的值。
++     */
++    public function expm1()
++    {
++        $this->current = expm1($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 向下舍入为最接近的整数。
++     */
++    public function floor()
++    {
++        $this->current = floor($this->toDouble());
++        return $this;
++    }
++
++    /**
++     * @param $y
++     * @return $this
++     * @desc 返回除法的浮点数余数。
++     */
++    public function fmod($y)
++    {
++        $this->current = fmod($this->toDouble(),doubleval($y));
++        return $this;
++    }
++
++    /**
++     * @param $y
++     * @return $this
++     * @desc 计算直角三角形的斜边长度。
++     */
++    public function hypot($y)
++    {
++        $this->current = hypot($this->toDouble(),doubleval($y));
++        return $this;
++    }
++
++    /**
++     * @return $this
++     * @desc 判断是否为有限值。
++     */
++    public function is_finite()
++    {
++        return is_finite($this->toDouble());
++    }
++
++    /**
++     * @return $this
++     * @desc 判断是否为无限值。
++     */
++    public function is_infinite()
++    {
++        return is_infinite($this->toDouble());
++    }
+ }
+ 
+ /**
+- * number_format()    通过千位分组来格式化数字。    3
+- * abs()    绝对值。    3
+- * acos()    反余弦。    3
+- * acosh()    反双曲余弦。    4
+- * asin()    反正弦。    3
+- * asinh()    反双曲正弦。    4
+- * atan()    反正切。    3
+- * atan2()    两个参数的反正切。    3
+- * atanh()    反双曲正切。    4
+- * base_convert()    在任意进制之间转换数字。    3
+- * bindec()    把二进制转换为十进制。    3
+- * ceil()    向上舍入为最接近的整数。    3
+- * cos()    余弦。    3
+- * cosh()    双曲余弦。    4
+- * decbin()    把十进制转换为二进制。    3
+- * dechex()    把十进制转换为十六进制。    3
+- * decoct()    把十进制转换为八进制。    3
+- * deg2rad()    将角度转换为弧度。    3
+- * exp()    返回 Ex 的值。    3
+- * expm1()    返回 Ex - 1 的值。    4
+- * floor()    向下舍入为最接近的整数。    3
+- * fmod()    返回除法的浮点数余数。    4
+- * getrandmax()    显示随机数最大的可能值。    3
+- * hexdec()    把十六进制转换为十进制。    3
+- * hypot()    计算直角三角形的斜边长度。    4
+- * is_finite()    判断是否为有限值。    4
+- * is_infinite()    判断是否为无限值。    4
+  * is_nan()    判断是否为合法数值。    4
+  * lcg_value()    返回范围为 (0, 1) 的一个伪随机数。    4
+  * log()    自然对数。    3
+@@ -99,7 +333,7 @@ class NTNumber
+  * mt_getrandmax()    显示随机数的最大可能值。    3
+  * mt_rand()    使用 Mersenne Twister 算法返回随机整数。    3
+  * mt_srand()    播种 Mersenne Twister 随机数生成器。    3
+- * octdec()    把八进制转换为十进制。    3
++
+  * pi()    返回圆周率的值。    3
+  * pow()    返回 x 的 y 次方。    3
+  * rad2deg()    把弧度数转换为角度数。    3
+diff --git a/php.php b/php.php
+old mode 100644
+new mode 100755
+index 618dae3..aac0d0a
+--- a/php.php
++++ b/php.php
+@@ -6,12 +6,12 @@ include_once('HTFramework/HTArray.php');
+ 
+ use HTFramework\HTString;
+ use HTFramework\HTArray;
++use HTFramework\HTNumber;
+ $arr = new HTArray(array("aa","aaa"));
+ $str = new HTString("abc");
+ //echo $str . '1111111' . $str->strtoupper() . "\n";
+ $str = new HTString("haotian");
+-$str->md5();
+-echo $str->length;
+-$str->HTecho();
++$num = new HTNumber("23.22");
++echo $num->acosh()->toInt();
+ 
+ 
