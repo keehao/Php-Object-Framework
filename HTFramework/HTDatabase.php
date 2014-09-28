@@ -11,10 +11,10 @@ namespace HTFramework;
 
 abstract class HTDatabase
 {
-    protected $host;
-    protected $port;
-    protected $user;
-    protected $name;
-    protected $password;
-    protected $encoding;
+    public $host;
+    public $port;
+    public $user;
+    public $name = 'text';
+    public $password;
+    public $encoding;
 } 

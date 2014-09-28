@@ -2,11 +2,12 @@
 include_once('HTFramework/HTString.php');
 include_once('HTFramework/HTNumber.php');
 include_once('HTFramework/HTArray.php');
-
+include_once('HTFramework/HTDatabase.php');
 
 use HTFramework\HTString;
 use HTFramework\HTArray;
 use HTFramework\HTNumber;
+use HTFramework\HTDatabase;
 
 $arr = new HTArray(array("aa","aaa"));
 $str = new HTString("abc");
@@ -24,4 +25,10 @@ $arr = array(
 );
 $b = new  HTArray($arr);
 $c = $b->array_pop();
-var_dump($c);
+
+class db extends HTDatabase
+{
+
+}
+
+$db = new db();
