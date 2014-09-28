@@ -11,7 +11,7 @@ namespace HTFramework\StaticLib;
 
 use HTFramework\HTArray;
 
-class HTStaticArray
+final class HTStaticArray
 {
 
 

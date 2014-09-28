@@ -9,7 +9,7 @@
 namespace HTFramework;
 
 
-class HTNumber
+final class HTNumber
 {
     private $number;
     private $current;

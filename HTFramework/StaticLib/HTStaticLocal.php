@@ -9,7 +9,7 @@
 namespace HTFramework\StaticLib;
 
 
-class HTStaticLocal
+final class HTStaticLocal
 {
 
     /**

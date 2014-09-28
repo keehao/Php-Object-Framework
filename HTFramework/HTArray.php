@@ -9,7 +9,7 @@
 namespace HTFramework;
 
 
-class HTArray extends \ArrayObject
+final class HTArray extends \ArrayObject
 {
     private $current;
 

@@ -10,7 +10,7 @@ namespace HTFramework\StaticLib;
 
 use HTFramework\HTNumber;
 
-class HTStaticMath
+final class HTStaticMath
 {
 
     /**

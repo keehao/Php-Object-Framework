@@ -24,6 +24,4 @@ $arr = array(
 );
 $b = new  HTArray($arr);
 $c = $b->array_pop();
-
-$j = array('2','3');
-var_dump(array_pop($j));
+var_dump($c);

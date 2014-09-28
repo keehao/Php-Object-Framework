@@ -9,7 +9,7 @@
 namespace HTFramework;
 
 
-class HTString
+final class HTString
 {
     private $string;
     private $current;
