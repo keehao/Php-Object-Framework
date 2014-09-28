@@ -26,7 +26,7 @@ class HTNumber
 
     public function toHTString()
     {
-        return new HTString("{$this->number}");
+        return new HTString((string)$this->number);
     }
 
     public function toInt()

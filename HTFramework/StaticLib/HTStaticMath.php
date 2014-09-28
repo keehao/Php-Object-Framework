@@ -6,19 +6,20 @@
  * Time: 下午12:50
  */
 
-namespace HTFramework\Lib;
+namespace HTFramework\StaticLib;
 
+use HTFramework\HTNumber;
 
-class HTMath
+class HTStaticMath
 {
 
     /**
-     * @return int
+     * @return HTNumber
      * @desc 显示随机数最大的可能值。
      */
     public static function getrandmax()
     {
-        return getrandmax();
+        return new HTNumber(getrandmax());
     }
 
     /**
@@ -32,32 +33,32 @@ class HTMath
     }
 
     /**
-     * @return int
+     * @return HTNumber
      * @desc 返回范围为 (0, 1) 的一个伪随机数。。
      */
     public static function lcg_value()
     {
-        return lcg_value();
+        return new HTNumber(lcg_value());
     }
 
     /**
-     * @return int
+     * @return HTNumber
      * @desc 返回调用 mt_rand() 所能返回的最大的随机数。
      */
     public static function mt_getrandmax()
     {
-        return mt_getrandmax();
+        return new HTNumber(mt_getrandmax());
     }
 
     /**
      * @param null $min
      * @param null $max
-     * @return int
+     * @return HTNumber
      * @desc 使用 Mersenne Twister 算法返回随机整数。
      */
     public static function mt_rand($min = null, $max = null)
     {
-        return mt_rand($min, $max);
+        return new HTNumber(mt_rand($min, $max));
     }
 
     /**
@@ -76,7 +77,7 @@ class HTMath
      */
     public static function pi()
     {
-        return pi();
+        return new HTNumber(pi());
     }
 
     /**
@@ -87,7 +88,7 @@ class HTMath
      */
     public static function rand($min = null, $max = null)
     {
-        return rand($min, $max);
+        return new HTNumber(rand($min, $max));
     }
 
     /**
