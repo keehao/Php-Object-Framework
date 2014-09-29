@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: saligia
  * Date: 14-9-29
- * Time: 上午10:58
+ * Time: 上午11:17
  */
 
-namespace HTFramework\Entrance;
+namespace HTFramework\Parameter;
 
 
-final class HTMVCIndex
+class Request
 {
 
 } 

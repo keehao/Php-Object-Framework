@@ -9,7 +9,7 @@
 namespace HTFramework\Entrance;
 
 
-class HTAbstractFactoryIndex
+final class HTAbstractFactoryIndex
 {
 
 } 

@@ -594,6 +594,7 @@ class Logger
      *
      * @param string|LoggerConfigurator $configurator The configurator class
      * or LoggerConfigurator instance.
+     * @return \LoggerConfigurator|\LoggerConfiguratorDefault|null|string
      */
     private static function getConfigurator($configurator = null)
     {

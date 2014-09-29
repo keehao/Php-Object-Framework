@@ -7,9 +7,10 @@
  */
 
 namespace HTFramework;
+use HTFramework\StaticLib\HTStaticError;
+use ArrayObject;
 
-
-final class HTArray extends \ArrayObject
+final class HTArray extends ArrayObject
 {
     private $current;
 
@@ -24,7 +25,7 @@ final class HTArray extends \ArrayObject
             parent::__construct($input, $flags, $iterator_class);
             $this->current = $input;
         } else {
-
+            HTStaticError::error_type(__CLASS__);
         }
     }
 
@@ -60,7 +61,7 @@ final class HTArray extends \ArrayObject
     {
         $array = array();
         foreach (array_chunk($this->current, $size, $preserve_keys) as $arr) {
-            $array[] = new \ArrayObject($arr);
+            $array[] = new ArrayObject($arr);
         }
         $this->current = $array;
         return $this;

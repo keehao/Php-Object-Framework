@@ -7,6 +7,7 @@
  */
 
 namespace HTFramework;
+use HTFramework\StaticLib\HTStaticError;
 
 
 final class HTString
@@ -20,7 +21,7 @@ final class HTString
             $this->string = $string;
             $this->current = $this->string;
         } else {
-
+            HTStaticError::error_type(__CLASS__);
         }
     }
 

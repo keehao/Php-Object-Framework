@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: saligia
  * Date: 14-9-29
- * Time: 上午10:58
+ * Time: 下午12:41
  */
 
-namespace HTFramework\Entrance;
+namespace HTFramework\Library;
 
 
-final class HTMVCIndex
+class Xdebug
 {
 
 } 
