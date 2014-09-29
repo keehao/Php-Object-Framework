@@ -9,12 +9,7 @@
 namespace HTFramework;
 
 
-abstract class HTDatabase
+class HTDatabase
 {
-    public $host;
-    public $port;
-    public $user;
-    public $name = 'text';
-    public $password;
-    public $encoding;
+
 } 
