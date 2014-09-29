@@ -11,5 +11,18 @@ namespace HTFramework;
 
 class HTRecord
 {
+    public function valid()
+    {
 
+    }
+
+    public function prev()
+    {
+
+    }
+
+    public function next()
+    {
+
+    }
 } 
