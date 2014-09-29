@@ -16,60 +16,76 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>Layouts</title>
-	</properties>
+    <properties>
+        <title>Layouts</title>
+    </properties>
 
-	<body>
-		<section name="Layouts">
-		
-			<p>Layouts are components responsible for transforming a logging event into a string.</p>
-			
-			<p>More often than not, users wish to customize not only the output destination but also the output format. This is 
-  accomplished by associating a layout with an appender. All messages logged by that appender will use the given layout.</p>
-			
-			<subsection name="Layout reference" id="Layout_reference">
-				
-				<p>The following layout classes are available:</p>
-			
-				<table>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><a href="layouts/html.html">LoggerLayoutHTML</a></td>
-							<td> Outputs events in a HTML table.</td>
-						</tr>
-						<tr>
-							<td><a href="layouts/pattern.html">LoggerLayoutPattern</a></td>
-							<td>A flexible layout configurable via a pattern string.</td>
-						</tr>
-						<tr>
-							<td><a href="layouts/simple.html">LoggerLayoutSimple</a></td>
-							<td>A simple, non configurable layout.</td>
-						</tr>
-						<tr>
-							<td><a href="layouts/serialized.html">LoggerLayoutSerialized</a></td>
-							<td>Outputs serialized objects.</td>
-						</tr>
-						<tr>
-							<td><a href="layouts/ttcc.html">LoggerLayoutTTCC</a></td>
-						    <td>Consists of Time, Thread, Category and nested diagnostic Context.
-						        <span class="label label-warning">DEPRECATED</span></td>
-						</tr>
-						<tr>
-							<td><a href="layouts/xml.html">LoggerLayoutXml</a></td>
-							<td>Outputs events as an XML document.</td>
-						</tr>
-					</tbody>
-				</table>
-			</subsection>
-		</section>
-	</body>
+    <body>
+        <section name="Layouts">
+
+            <p>Layouts are components responsible for transforming a logging event into a string.</p>
+
+            <p>More often than not, users wish to customize not only the output destination but also the output format.
+                This is
+                accomplished by associating a layout with an appender. All messages logged by that appender will use the
+                given layout.
+            </p>
+
+            <subsection name="Layout reference" id="Layout_reference">
+
+                <p>The following layout classes are available:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="layouts/html.html">LoggerLayoutHTML</a>
+                            </td>
+                            <td>Outputs events in a HTML table.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="layouts/pattern.html">LoggerLayoutPattern</a>
+                            </td>
+                            <td>A flexible layout configurable via a pattern string.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="layouts/simple.html">LoggerLayoutSimple</a>
+                            </td>
+                            <td>A simple, non configurable layout.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="layouts/serialized.html">LoggerLayoutSerialized</a>
+                            </td>
+                            <td>Outputs serialized objects.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="layouts/ttcc.html">LoggerLayoutTTCC</a>
+                            </td>
+                            <td>Consists of Time, Thread, Category and nested diagnostic Context.
+                                <span class="label label-warning">DEPRECATED</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="layouts/xml.html">LoggerLayoutXml</a>
+                            </td>
+                            <td>Outputs events as an XML document.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+        </section>
+    </body>
 </document>

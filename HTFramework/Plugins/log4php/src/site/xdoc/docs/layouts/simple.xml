@@ -16,39 +16,50 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerLayoutSimple</title>
-	</properties>
+    <properties>
+        <title>LoggerLayoutSimple</title>
+    </properties>
 
-	<body>
-		<section name="LoggerLayoutSimple">
-		
-			<p><code>LoggerLayoutSimple</code> is a basic layout which outputs only the level followed by the message.</p>
-			
-			<p>It is interesting to note that the output of <code>LoggerLayoutSimple</code> is identical to that of 
-			<code><a href="pattern.html">LoggerLayoutPattern</a></code> with the <em>conversion pattern</em> set to 
-			<code>%p - %m%n</code>.</p>
-			
-	
-			<subsection name="Parameters">
-				<p>This layout does not have any configurable parameters.</p>
-			</subsection>
-				
-			<subsection name="Examples">
-					
-				<p>Configuration:</p>
-					
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
+    <body>
+        <section name="LoggerLayoutSimple">
 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint linenums"><![CDATA[
+            <p>
+                <code>LoggerLayoutSimple</code>
+                is a basic layout which outputs only the level followed by the message.
+            </p>
+
+            <p>It is interesting to note that the output of
+                <code>LoggerLayoutSimple</code>
+                is identical to that of
+                <code>
+                    <a href="pattern.html">LoggerLayoutPattern</a>
+                </code>
+                with the
+                <em>conversion pattern</em>
+                set to
+                <code>%p - %m%n</code>.
+            </p>
+
+
+            <subsection name="Parameters">
+                <p>This layout does not have any configurable parameters.</p>
+            </subsection>
+
+            <subsection name="Examples">
+
+                <p>Configuration:</p>
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint linenums"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderEcho">
         <layout class="LoggerLayoutSimple" />
@@ -58,9 +69,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint linenums"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint linenums"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -75,30 +86,30 @@ array(
     ),
 )
 ]]></pre>
-						</div>
-					</div>
-				</div>
-				
+                        </div>
+                    </div>
+                </div>
 
-				<p>Running the following code:</p>
 
-<pre class="prettyprint linenums">
-Logger::configure("layout_xml.xml");
-$log = Logger::getRootLogger();
-$log->info("My first message.");
-$log->debug("My second message.");
-$log->warn("My third message.");
-</pre>
+                <p>Running the following code:</p>
 
-				<p>Produces the following output:</p>
+                <pre class="prettyprint linenums">
+                    Logger::configure("layout_xml.xml");
+                    $log = Logger::getRootLogger();
+                    $log->info("My first message.");
+                    $log->debug("My second message.");
+                    $log->warn("My third message.");
+                </pre>
 
-<pre>
-INFO - My first message.
-DEBUG - My second message.
-WARN - My third message.
-</pre>
+                <p>Produces the following output:</p>
 
-			</subsection>
-		</section>
-	</body>
+                <pre>
+                    INFO - My first message.
+                    DEBUG - My second message.
+                    WARN - My third message.
+                </pre>
+
+            </subsection>
+        </section>
+    </body>
 </document>

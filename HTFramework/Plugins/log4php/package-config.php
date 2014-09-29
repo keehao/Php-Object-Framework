@@ -18,7 +18,7 @@
 
 // parse pom.xml to get version in sync
 $xml = simplexml_load_file('../../pom.xml');
-$pom_version = (string) $xml->version;
+$pom_version = (string)$xml->version;
 
 preg_match("/^([^-]+)(-SNAPSHOT)?$/", $pom_version, $matches);
 $version = $matches[1];
@@ -40,52 +40,52 @@ EOT;
 $notes = 'Please see CHANGELOG and changes.xml!';
 
 $options = array(
-	'license' => 'Apache License 2.0',
-	//'filelistgenerator' => 'svn',
-	'ignore' => array('package.php', 'package-config.php'),
-	'simpleoutput' => true,
-	'baseinstalldir' => '/',
-	'packagedirectory' => '.',
-	'dir_roles' => array(
-		'examples' => 'doc',
-	),
-	'exceptions' => array(
-	    'changes.xml' =>  'doc',
-		'CHANGELOG' => 'doc',
-		'LICENSE' => 'doc',
-		'README' => 'doc',
-		'NOTICE' => 'doc',
-	),
+    'license' => 'Apache License 2.0',
+    //'filelistgenerator' => 'svn',
+    'ignore' => array('package.php', 'package-config.php'),
+    'simpleoutput' => true,
+    'baseinstalldir' => '/',
+    'packagedirectory' => '.',
+    'dir_roles' => array(
+        'examples' => 'doc',
+    ),
+    'exceptions' => array(
+        'changes.xml' => 'doc',
+        'CHANGELOG' => 'doc',
+        'LICENSE' => 'doc',
+        'README' => 'doc',
+        'NOTICE' => 'doc',
+    ),
 );
 
 $license = array(
-	'name' => 'Apache License 2.0',
-	'url' => 'http://www.apache.org/licenses/LICENSE-2.0'
+    'name' => 'Apache License 2.0',
+    'url' => 'http://www.apache.org/licenses/LICENSE-2.0'
 );
 
 $maintainer = array();
-$maintainer[]   =   array(
-	'role' => 'lead',
-	'handle' => 'grobmeier',
-	'name' => 'Christian Grobmeier',
-	'email' => 'grobmeier@apache.org',
-	'active' => 'yes'
+$maintainer[] = array(
+    'role' => 'lead',
+    'handle' => 'grobmeier',
+    'name' => 'Christian Grobmeier',
+    'email' => 'grobmeier@apache.org',
+    'active' => 'yes'
 );
-$maintainer[]   =   array(
+$maintainer[] = array(
     'role' => 'developer',
     'handle' => 'ihabunek',
     'name' => 'Ivan Habunek',
     'email' => 'ihabunek@apache.org',
     'active' => 'yes'
 );
-$maintainer[]  =   array(
-	'role' => 'lead',
-	'handle' => 'kurdalen',
-	'name' => 'Knut Urdalen',
-	'email' => 'kurdalen@apache.org',
-	'active' => 'no'
+$maintainer[] = array(
+    'role' => 'lead',
+    'handle' => 'kurdalen',
+    'name' => 'Knut Urdalen',
+    'email' => 'kurdalen@apache.org',
+    'active' => 'no'
 );
-$maintainer[]   =   array(
+$maintainer[] = array(
     'role' => 'developer',
     'handle' => 'chammers',
     'name' => 'Christian Hammers',
@@ -97,6 +97,6 @@ $dependency = array();
 
 $channel = 'pear.apache.org/log4php';
 $require = array(
-	'php' => '5.2.0',
-	'pear_installer' => '1.7.0',
+    'php' => '5.2.0',
+    'pear_installer' => '1.7.0',
 );

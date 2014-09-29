@@ -16,74 +16,93 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerAppenderFile</title>
-	</properties>
+    <properties>
+        <title>LoggerAppenderFile</title>
+    </properties>
 
-	<body>
-		<section name="LoggerAppenderFile">
-		
-			<p><code>LoggerAppenderFile</code> writes logging events to a file.</p>
-		
-			<subsection name="Layout">
-				<p>This appender requires a layout. If no layout is specified in configuration, 
-				<code><a href="../layouts/simple.html">LoggerLayoutSimple</a></code> will be used by default.</p>
-			</subsection>
-			
-			<subsection name="Parameters">
-				<p>The following parameters are available:</p>
-		
-				<table>
-					<thead>
-						<tr>
-							<th>Parameter</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>file</td>
-							<td>string</td>
-							<td><strong>Yes</strong></td>
-							<td>-</td>
-							<td>Path to the target file. Relative paths are resolved based on the working directory.</td>
-						</tr>
-						<tr>
-							<td>append</td>
-							<td>boolean</td>
-							<td>No</td>
-							<td>true</td>
-							<td>If set to true, the appender will append to the file, otherwise the file contents will be 
-							overwritten.</td>
-						</tr>
-					</tbody>
-				</table>
-				
-			</subsection>
-				
-			<subsection name="Examples">
-				
-				<p>This example shows how to configure <code>LoggerAppenderFile</code> to write to <code>file.log</code>
-				and to overwrite any content present in the file. The target file will be created in the current 
-				working directory.</p>
-				
-				<p>It is also possible to specify an absolute path to the target file, such as 
-				<code>/var/log/file.log</code> or <code>D:/logs/file.log</code></p>
-				
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+    <body>
+        <section name="LoggerAppenderFile">
+
+            <p>
+                <code>LoggerAppenderFile</code>
+                writes logging events to a file.
+            </p>
+
+            <subsection name="Layout">
+                <p>This appender requires a layout. If no layout is specified in configuration,
+                    <code>
+                        <a href="../layouts/simple.html">LoggerLayoutSimple</a>
+                    </code>
+                    will be used by default.
+                </p>
+            </subsection>
+
+            <subsection name="Parameters">
+                <p>The following parameters are available:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>file</td>
+                            <td>string</td>
+                            <td>
+                                <strong>Yes</strong>
+                            </td>
+                            <td>-</td>
+                            <td>Path to the target file. Relative paths are resolved based on the working directory.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>append</td>
+                            <td>boolean</td>
+                            <td>No</td>
+                            <td>true</td>
+                            <td>If set to true, the appender will append to the file, otherwise the file contents will
+                                be
+                                overwritten.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </subsection>
+
+            <subsection name="Examples">
+
+                <p>This example shows how to configure
+                    <code>LoggerAppenderFile</code>
+                    to write to
+                    <code>file.log</code>
+                    and to overwrite any content present in the file. The target file will be created in the current
+                    working directory.
+                </p>
+
+                <p>It is also possible to specify an absolute path to the target file, such as
+                    <code>/var/log/file.log</code>
+                    or
+                    <code>D:/logs/file.log</code>
+                </p>
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderFile">
         <layout class="LoggerLayoutSimple" />
@@ -95,9 +114,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -116,10 +135,10 @@ array(
     ),
 );
 ]]></pre>
-						</div>
-					</div>
-				</div>
-			</subsection>
-		</section>
-	</body>
+                        </div>
+                    </div>
+                </div>
+            </subsection>
+        </section>
+    </body>
 </document>

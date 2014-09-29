@@ -17,11 +17,11 @@
 -->
 <configuration xmlns="http://logging.apache.org/log4php">
     <appender name="foo" class="LoggerAppenderConsole">
-    	<filter class="stdClass" />
+        <filter class="stdClass"/>
     </appender>
-    
+
     <root>
-        <level value="DEBUG" />
-        <appender_ref ref="foo" />
+        <level value="DEBUG"/>
+        <appender_ref ref="foo"/>
     </root>
 </configuration>

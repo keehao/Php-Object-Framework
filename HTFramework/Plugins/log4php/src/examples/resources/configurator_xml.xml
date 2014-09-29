@@ -16,11 +16,11 @@
  limitations under the License.
 -->
 <log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/" threshold="all">
-	<appender name="default" class="LoggerAppenderEcho">
-		<layout class="LoggerLayoutTTCC" />
-	</appender>
-	<root>
-		<level value="DEBUG" />
-		<appender_ref ref="default" />
-	</root>
+    <appender name="default" class="LoggerAppenderEcho">
+        <layout class="LoggerLayoutTTCC"/>
+    </appender>
+    <root>
+        <level value="DEBUG"/>
+        <appender_ref ref="default"/>
+    </root>
 </log4php:configuration>

@@ -16,70 +16,85 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerAppenderFirePHP</title>
-	</properties>
+    <properties>
+        <title>LoggerAppenderFirePHP</title>
+    </properties>
 
-	<body>
-		<section name="LoggerAppenderFirePHP">
-		
-			<p><code>LoggerAppenderFirePHP</code> logs events via the 
-				<a href="http://www.firephp.org/" class="external">FirePHP</a> serverside library. The messages are 
-				logged in HTTP headers and can be viewed using the <a class="external" 
-				href="http://developercompanion.com/">Developer compainion</a> plugin for Firefox.</p>
-		
-			<p>Requires the FirePHP server-side library 1.0 or greater. Download it from <a class="external" 
-				href="http://sourcemint.com/github.com/firephp/firephp/1:1.0.0b1rc6/-docs/Welcome">here</a>.</p>
-				
-			<div class="alert">
-				<strong>Warning!</strong> This appender is still experimental. Behaviour may change in future versions
-				without notification.
-			</div>
-		
-			<subsection name="Layout">
-				<p>This appender requires a layout. If no layout is specified in configuration, 
-				<code><a href="../layouts/simple.html">LoggerLayoutSimple</a></code> will be used by default.</p>
-			</subsection>	
-		
-			<subsection name="Parameters">
-				<p>The following parameters are available:</p>
-		
-				<table>
-					<thead>
-						<tr>
-							<th>Parameter</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>target</td>
-							<td>string</td>
-							<td>No</td>
-							<td>page</td>
-							<td>The target to which messages will be sent. Possible options are 'page' (default), 
-								'request', 'package' and 'controller'. For more details, see FirePHP 
-								documentation.</td>
-						</tr>
-					</tbody>
-				</table>
-			</subsection>
-			<subsection name="Examples">
-				<p>Sample configuration:</p>
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+    <body>
+        <section name="LoggerAppenderFirePHP">
+
+            <p>
+                <code>LoggerAppenderFirePHP</code>
+                logs events via the
+                <a href="http://www.firephp.org/" class="external">FirePHP</a>
+                serverside library. The messages are
+                logged in HTTP headers and can be viewed using the
+                <a class="external"
+                   href="http://developercompanion.com/">Developer compainion
+                </a>
+                plugin for Firefox.
+            </p>
+
+            <p>Requires the FirePHP server-side library 1.0 or greater. Download it from<a class="external"
+                                                                                           href="http://sourcemint.com/github.com/firephp/firephp/1:1.0.0b1rc6/-docs/Welcome">
+                here</a>.
+            </p>
+
+            <div class="alert">
+                <strong>Warning!</strong>
+                This appender is still experimental. Behaviour may change in future versions
+                without notification.
+            </div>
+
+            <subsection name="Layout">
+                <p>This appender requires a layout. If no layout is specified in configuration,
+                    <code>
+                        <a href="../layouts/simple.html">LoggerLayoutSimple</a>
+                    </code>
+                    will be used by default.
+                </p>
+            </subsection>
+
+            <subsection name="Parameters">
+                <p>The following parameters are available:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>target</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>page</td>
+                            <td>The target to which messages will be sent. Possible options are 'page' (default),
+                                'request', 'package' and 'controller'. For more details, see FirePHP
+                                documentation.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+            <subsection name="Examples">
+                <p>Sample configuration:</p>
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderFirePHP">
         <layout class="LoggerLayoutSimple" />
@@ -89,9 +104,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -106,10 +121,10 @@ array(
     ),
 );
 ]]></pre>
-						</div>
-					</div>
-				</div>
-			</subsection>
-		</section>
-	</body>
+                        </div>
+                    </div>
+                </div>
+            </subsection>
+        </section>
+    </body>
 </document>

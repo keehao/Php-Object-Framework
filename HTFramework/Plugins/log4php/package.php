@@ -18,23 +18,23 @@
 date_default_timezone_set('Europe/Berlin');
 
 @include 'PEAR/PackageFileManager2.php';
-if(!class_exists('PEAR_PackageFileManager2')) {
-	echo "\nYou need to install PEAR_PackageFileManager2 in order to run this script\n\n";
-	echo "Installation tips:\n\n";
-	echo "  $ pear upgrade PEAR\n";
-	echo "  $ pear install XML_Serializer-0.20.2\n";
-	echo "  $ pear install Console_ProgressBar-0.5.2beta\n";
-	echo "  $ pear install --alldeps PEAR_PackageFileManager2\n\n";
-	exit(0);
+if (!class_exists('PEAR_PackageFileManager2')) {
+    echo "\nYou need to install PEAR_PackageFileManager2 in order to run this script\n\n";
+    echo "Installation tips:\n\n";
+    echo "  $ pear upgrade PEAR\n";
+    echo "  $ pear install XML_Serializer-0.20.2\n";
+    echo "  $ pear install Console_ProgressBar-0.5.2beta\n";
+    echo "  $ pear install --alldeps PEAR_PackageFileManager2\n\n";
+    exit(0);
 }
 
-include dirname(__FILE__).'/package-config.php';
+include dirname(__FILE__) . '/package-config.php';
 
 $package = new PEAR_PackageFileManager2();
 $result = $package->setOptions($options);
-if(PEAR::isError($result)) {
+if (PEAR::isError($result)) {
     echo $result->getMessage();
-    die( __LINE__ . "\n" );
+    die(__LINE__ . "\n");
 }
 
 $package->setPackage($name);
@@ -50,15 +50,15 @@ $package->setNotes($notes);
 $package->setPackageType('php'); // this is a PEAR-style php script package
 $package->setLicense($license['name'], $license['url']);
 
-foreach($maintainer as $m) {
-	$package->addMaintainer($m['role'], $m['handle'], $m['name'], $m['email'], $m['active']);
+foreach ($maintainer as $m) {
+    $package->addMaintainer($m['role'], $m['handle'], $m['name'], $m['email'], $m['active']);
 }
 
-foreach($dependency as $d) {
+foreach ($dependency as $d) {
     $package->addPackageDepWithChannel($d['type'], $d['package'], $d['channel'], $d['version']);
 }
 
-$package->setPhpDep( $require['php'] );
+$package->setPhpDep($require['php']);
 $package->setPearinstallerDep($require['pear_installer']);
 
 $package->generateContents();
@@ -66,7 +66,7 @@ $package->generateContents();
 // $package->debugPackageFile();
 
 $result = $package->writePackageFile();
-if(PEAR::isError($result)) {
+if (PEAR::isError($result)) {
     echo $result->getMessage();
     die();
 }

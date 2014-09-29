@@ -17,7 +17,7 @@
 -->
 <configuration xmlns="http://logging.apache.org/log4php" threshold="debug">
     <logger name="myLogger">
-        <level value="warn" />
-        <appender_ref ref="unknownAppender" />
+        <level value="warn"/>
+        <appender_ref ref="unknownAppender"/>
     </logger>
 </configuration>

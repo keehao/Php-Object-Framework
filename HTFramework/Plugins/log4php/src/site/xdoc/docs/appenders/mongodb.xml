@@ -16,120 +16,134 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerAppenderMongoDB</title>
-	</properties>
+    <properties>
+        <title>LoggerAppenderMongoDB</title>
+    </properties>
 
-	<body>
-		<section name="LoggerAppenderMongoDB">
-		
-			<p><code>LoggerAppenderMongoDB</code> appends log events to a mongoDB instance.</p>
-			
-			<p><a href="http://www.mongodb.org/" class="external">MongoDB</a> is a scalable, 
-			high-performance, open source, document-oriented database.</p>
-		
-			<subsection name="Layout">
-				<p>This appender does not require a layout.</p>
-			</subsection>
-		
-			<subsection name="Parameters">
-				<p>The following parameters are available:</p>
-		
-				<table>
-					<thead>
-						<tr>
-							<th>Parameter</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>host</td>
-							<td>string</td>
-							<td>No</td>
-							<td>mongodb://localhost</td>
-							<td>Server on which mongodb instance is located.</td>
-						</tr>
-						<tr>
-							<td>port</td>
-							<td>integer</td>
-							<td>No</td>
-							<td>27017</td>
-							<td>Port on which the instance is bound.</td>
-						</tr>
-						<tr>
-							<td>databaseName</td>
-							<td>string</td>
-							<td>No</td>
-							<td>log4php_mongodb</td>
-							<td>Name of the database to which to log.</td>
-						</tr>
-						<tr>
-							<td>collectionName</td>
-							<td>string</td>
-							<td>No</td>
-							<td>logs</td>
-							<td>Name of the target collection within the given database.</td>
-						</tr>
-						<tr>
-							<td>username</td>
-							<td>string</td>
-							<td>No</td>
-							<td>-</td>
-							<td>Username used to connect to the database.</td>
-						</tr>
-						<tr>
-							<td>password</td>
-							<td>string</td>
-							<td>No</td>
-							<td>-</td>
-							<td>Password used to connect to the database.</td>
-						</tr>
-						<tr>
-							<td>timeout</td>
-							<td>integer</td>
-							<td>No</td>
-							<td>3000</td>
-							<td>For how long the driver should try to connect to the database (in milliseconds).</td>
-						</tr>
-					</tbody>
-				</table>
-			</subsection>
-			
-			<subsection name="Changelog">
-				<table class="table table-striped table-bordered table-not-wide">
-					<thead>
-						<tr>
-							<th>Version</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><code>2.2.0</code></td>
-							<td>Added the <code>timeout</code> parameter.</td>
-						</tr>
-					</tbody>
-				</table>
-			</subsection>
-				
-			<subsection name="Examples">
-				<p>This example shows how to configure <code>LoggerAppenderMongoDB</code> to log to a remote database.</p>
-				
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+    <body>
+        <section name="LoggerAppenderMongoDB">
+
+            <p>
+                <code>LoggerAppenderMongoDB</code>
+                appends log events to a mongoDB instance.
+            </p>
+
+            <p>
+                <a href="http://www.mongodb.org/" class="external">MongoDB</a>
+                is a scalable,
+                high-performance, open source, document-oriented database.
+            </p>
+
+            <subsection name="Layout">
+                <p>This appender does not require a layout.</p>
+            </subsection>
+
+            <subsection name="Parameters">
+                <p>The following parameters are available:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>host</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>mongodb://localhost</td>
+                            <td>Server on which mongodb instance is located.</td>
+                        </tr>
+                        <tr>
+                            <td>port</td>
+                            <td>integer</td>
+                            <td>No</td>
+                            <td>27017</td>
+                            <td>Port on which the instance is bound.</td>
+                        </tr>
+                        <tr>
+                            <td>databaseName</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>log4php_mongodb</td>
+                            <td>Name of the database to which to log.</td>
+                        </tr>
+                        <tr>
+                            <td>collectionName</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>logs</td>
+                            <td>Name of the target collection within the given database.</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>-</td>
+                            <td>Username used to connect to the database.</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>-</td>
+                            <td>Password used to connect to the database.</td>
+                        </tr>
+                        <tr>
+                            <td>timeout</td>
+                            <td>integer</td>
+                            <td>No</td>
+                            <td>3000</td>
+                            <td>For how long the driver should try to connect to the database (in milliseconds).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+
+            <subsection name="Changelog">
+                <table class="table table-striped table-bordered table-not-wide">
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <code>2.2.0</code>
+                            </td>
+                            <td>Added the
+                                <code>timeout</code>
+                                parameter.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+
+            <subsection name="Examples">
+                <p>This example shows how to configure
+                    <code>LoggerAppenderMongoDB</code>
+                    to log to a remote database.
+                </p>
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderMongoDB">
         <param name="host" value="mongodb://example.com" />
@@ -141,9 +155,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -160,10 +174,10 @@ array(
     ),
 );
 ]]></pre>
-						</div>
-					</div>
-				</div>
-			</subsection>
-		</section>
-	</body>
+                        </div>
+                    </div>
+                </div>
+            </subsection>
+        </section>
+    </body>
 </document>

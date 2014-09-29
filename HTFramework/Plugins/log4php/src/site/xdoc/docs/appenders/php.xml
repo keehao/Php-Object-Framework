@@ -16,46 +16,66 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerAppenderPhp</title>
-	</properties>
+    <properties>
+        <title>LoggerAppenderPhp</title>
+    </properties>
 
-	<body>
-		<section name="LoggerAppenderPhp">
-		
-			<p><code>LoggerAppenderPhp</code> logs events by creating a PHP user-level message using the PHP's
-			<code><a href="http://www.php.net/manual/en/function.trigger-error.php" 
-			class="external">trigger_error()</a></code>function.</p>
-		
-			<p>The message type depends on the event's severity level:</p>
-			<ul>
-				<li><code>E_USER_NOTICE</code> when the event's level is equal to or less than INFO</li>
-				<li><code>E_USER_WARNING</code> when the event's level is equal to WARN</li>
-				<li><code>E_USER_ERROR</code> when the event's level is equal to or greater than ERROR</li>
-			</ul>
-			
-			<subsection name="Layout">
-				<p>This appender requires a layout. If no layout is specified in configuration, 
-				<code><a href="../layouts/simple.html">LoggerLayoutSimple</a></code> will be used by default.</p>
-			</subsection>	
-		
-			<subsection name="Parameters">
-				<p>This appender has no configurable parameters.</p>
-			</subsection>
-				
-			<subsection name="Examples">
+    <body>
+        <section name="LoggerAppenderPhp">
 
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+            <p>
+                <code>LoggerAppenderPhp</code>
+                logs events by creating a PHP user-level message using the PHP's
+                <code>
+                    <a href="http://www.php.net/manual/en/function.trigger-error.php"
+                       class="external">trigger_error()
+                    </a>
+                </code>
+                function.
+            </p>
+
+            <p>The message type depends on the event's severity level:</p>
+            <ul>
+                <li>
+                    <code>E_USER_NOTICE</code>
+                    when the event's level is equal to or less than INFO
+                </li>
+                <li>
+                    <code>E_USER_WARNING</code>
+                    when the event's level is equal to WARN
+                </li>
+                <li>
+                    <code>E_USER_ERROR</code>
+                    when the event's level is equal to or greater than ERROR
+                </li>
+            </ul>
+
+            <subsection name="Layout">
+                <p>This appender requires a layout. If no layout is specified in configuration,
+                    <code>
+                        <a href="../layouts/simple.html">LoggerLayoutSimple</a>
+                    </code>
+                    will be used by default.
+                </p>
+            </subsection>
+
+            <subsection name="Parameters">
+                <p>This appender has no configurable parameters.</p>
+            </subsection>
+
+            <subsection name="Examples">
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderPhp">
         <layout class="LoggerLayoutSimple" />
@@ -65,9 +85,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -82,10 +102,10 @@ array(
     ),
 );
 ]]></pre>
-						</div>
-					</div>
-				</div>
-			</subsection>
-		</section>
-	</body>
+                        </div>
+                    </div>
+                </div>
+            </subsection>
+        </section>
+    </body>
 </document>

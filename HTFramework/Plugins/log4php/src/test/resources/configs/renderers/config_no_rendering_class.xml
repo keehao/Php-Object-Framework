@@ -19,11 +19,11 @@
     <appender name="foo" class="LoggerAppenderConsole">
         <layout class="LoggerLayoutSimple"/>
     </appender>
-    
-    <renderer />
-    
+
+    <renderer/>
+
     <root>
-        <level value="DEBUG" />
-        <appender_ref ref="foo" />
+        <level value="DEBUG"/>
+        <appender_ref ref="foo"/>
     </root>
 </configuration>

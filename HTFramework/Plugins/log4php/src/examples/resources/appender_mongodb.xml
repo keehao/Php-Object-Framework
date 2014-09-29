@@ -19,7 +19,7 @@
     <appender name="default" class="LoggerAppenderMongoDB">
     </appender>
     <root>
-        <level value="DEBUG" />
-        <appender_ref ref="default" />
+        <level value="DEBUG"/>
+        <appender_ref ref="default"/>
     </root>
 </log4php:configuration>

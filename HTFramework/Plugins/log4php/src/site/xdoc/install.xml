@@ -16,50 +16,55 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>Installing</title>
-	</properties>
+    <properties>
+        <title>Installing</title>
+    </properties>
 
-	<body>
-		<section name="Installing">
-		
-			<subsection name="From source package">
-			
-				<p>Download the latest source package from the <a href="download.html">download page</a> and unpack it.</p>
-			
-				<p>The package directory structure is as follows:</p>
-			
-<pre>
-├───apidocs      - API generated documentation
-└───src
-    ├───assembly - Maven assembly configuration 
-    ├───changes  - The change log
-    ├───examples - Various usage examples
-    ├───main  
-    │   └───php  - The main source code
-    ├───site     - Web site source
-    └───test     - Unit tests
-</pre>
-				<p>Most users will primarily be interested in the source code which is located in 
-				<code>/src/main/php</code>. The contents of this directory may be copied to a directory within your 
-				project for easier access.</p>
-			
-			</subsection>
-			
-			<subsection name="From PEAR repository">
-			
-				<p>Apache log4php has it's own <a href="http://pear.apache.org/log4php/index.html">PEAR channel</a>.</p>
-				
-				<p>To install from the PEAR channel, execute the following commands:</p>
-			
-<pre>
-pear channel-discover pear.apache.org/log4php
-pear install log4php/Apache_log4php
-</pre>
-				
-			</subsection>
-		</section>
-	</body>
+    <body>
+        <section name="Installing">
+
+            <subsection name="From source package">
+
+                <p>Download the latest source package from the
+                    <a href="download.html">download page</a>
+                    and unpack it.
+                </p>
+
+                <p>The package directory structure is as follows:</p>
+
+                <pre>
+                    ├───apidocs - API generated documentation
+                    └───src
+                    ├───assembly - Maven assembly configuration
+                    ├───changes - The change log
+                    ├───examples - Various usage examples
+                    ├───main
+                    │ └───php - The main source code
+                    ├───site - Web site source
+                    └───test - Unit tests
+                </pre>
+                <p>Most users will primarily be interested in the source code which is located in
+                    <code>/src/main/php</code>. The contents of this directory may be copied to a directory within your
+                    project for easier access.
+                </p>
+
+            </subsection>
+
+            <subsection name="From PEAR repository">
+
+                <p>Apache log4php has it's own<a href="http://pear.apache.org/log4php/index.html">PEAR channel</a>.
+                </p>
+
+                <p>To install from the PEAR channel, execute the following commands:</p>
+
+                <pre>
+                    pear channel-discover pear.apache.org/log4php
+                    pear install log4php/Apache_log4php
+                </pre>
+
+            </subsection>
+        </section>
+    </body>
 </document>

@@ -16,63 +16,65 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerLayoutHTML</title>
-	</properties>
+    <properties>
+        <title>LoggerLayoutHTML</title>
+    </properties>
 
-	<body>
-		<section name="LoggerLayoutHTML" id="LoggerLayoutHTML">
-		
-			<p>LoggerLayoutHTML formats the log as an HTML document.</p>
-		
-			<subsection name="Parameters">
-				<p>The following parameters are available:</p>
-		
-				<table>
-					<thead>
-						<tr>
-							<th>Parameter</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>locationInfo</td>
-							<td>boolean</td>
-							<td>No</td>
-							<td>false</td>
-							<td>If set to true, adds the file name and line number at which the log statement originated.</td>
-						</tr>
-						<tr>
-							<td>title</td>
-							<td>string</td>
-							<td>No</td>
-							<td>Log4php Log Messages</td>
-							<td>Sets the <![CDATA[<title>]]> of the generated HTML document.</td>
-						</tr>
-					</tbody>
-				</table>
-				
-			</subsection>
-				
-			<subsection name="Examples">
-					
-				<p>Configuration:</p>
-				
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint linenums"><![CDATA[
+    <body>
+        <section name="LoggerLayoutHTML" id="LoggerLayoutHTML">
+
+            <p>LoggerLayoutHTML formats the log as an HTML document.</p>
+
+            <subsection name="Parameters">
+                <p>The following parameters are available:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>locationInfo</td>
+                            <td>boolean</td>
+                            <td>No</td>
+                            <td>false</td>
+                            <td>If set to true, adds the file name and line number at which the log statement
+                                originated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>string</td>
+                            <td>No</td>
+                            <td>Log4php Log Messages</td>
+                            <td>Sets the <![CDATA[<title>]]> of the generated HTML document.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </subsection>
+
+            <subsection name="Examples">
+
+                <p>Configuration:</p>
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint linenums"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderEcho">
         <layout class="LoggerLayoutHtml">
@@ -84,9 +86,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint linenums"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint linenums"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -101,56 +103,58 @@ array(
     ),
 )
 ]]></pre>
-						</div>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                </div>
 
-				<p>Running the following code:</p>
+                <p>Running the following code:</p>
 
-<pre class="prettyprint linenums">
-Logger::configure("layout_xml.xml");
-$log = Logger::getRootLogger();
-$log->debug("Hello World!");
-$log->info("Hello World!");
-</pre>
+                <pre class="prettyprint linenums">
+                    Logger::configure("layout_xml.xml");
+                    $log = Logger::getRootLogger();
+                    $log->debug("Hello World!");
+                    $log->info("Hello World!");
+                </pre>
 
-				<p>Produces the output as a HTML table:</p>
+                <p>Produces the output as a HTML table:</p>
 
-				<table>
-					<thead>
-						<tr>
-							<th>Time</th>
-							<th>Thread</th>
-							<th>Level</th>
-							<th>Category</th>
-							<th>File:Line</th>
-							<th>Message</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>0</td>
-							<td title="5868 thread">5868</td>
-							<td title="Level"><font color="#339933">DEBUG</font></td>
-							<td title="root category">root</td>
-							<td>D:\Projects\apache\log4php-config-adapters\src\examples\php\layout_html.php:23</td>
-							<td title="Message">Hello World!</td>
-						</tr>
-						
-						<tr>
-							<td>2</td>
-							<td title="5868 thread">5868</td>
-							<td title="Level">INFO</td>
-							<td title="root category">root</td>
-							<td>D:\Projects\apache\log4php-config-adapters\src\examples\php\layout_html.php:24</td>
-							<td title="Message">Hello World!</td>
-						</tr>
-					</tbody>
-				</table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Thread</th>
+                            <th>Level</th>
+                            <th>Category</th>
+                            <th>File:Line</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td title="5868 thread">5868</td>
+                            <td title="Level">
+                                <font color="#339933">DEBUG</font>
+                            </td>
+                            <td title="root category">root</td>
+                            <td>D:\Projects\apache\log4php-config-adapters\src\examples\php\layout_html.php:23</td>
+                            <td title="Message">Hello World!</td>
+                        </tr>
 
-				<p>Source of the output:</p>
+                        <tr>
+                            <td>2</td>
+                            <td title="5868 thread">5868</td>
+                            <td title="Level">INFO</td>
+                            <td title="root category">root</td>
+                            <td>D:\Projects\apache\log4php-config-adapters\src\examples\php\layout_html.php:24</td>
+                            <td title="Message">Hello World!</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<pre class="prettyprint"><![CDATA[
+                <p>Source of the output:</p>
+
+                <pre class="prettyprint"><![CDATA[
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -196,7 +200,7 @@ Log session start time 09/22/11 13:19:23<br>
 </body>
 </html>]]></pre>
 
-			</subsection>
-		</section>
-	</body>
+            </subsection>
+        </section>
+    </body>
 </document>

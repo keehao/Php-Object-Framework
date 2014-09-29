@@ -16,37 +16,40 @@
  limitations under the License.
 -->
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-	<properties>
-		<title>LoggerAppenderNull</title>
-	</properties>
+    <properties>
+        <title>LoggerAppenderNull</title>
+    </properties>
 
-	<body>
-		<section name="LoggerAppenderNull">
-		
-			<p><code>LoggerAppenderNull</code> ignores all logging requests; it never outputs a message to any 
-			device.</p>
-			
-			<subsection name="Layout">
-				<p>This appender does not require a layout.</p>
-			</subsection>
-			
-			<subsection name="Parameters">
-				<p>This appender does not have any configurable parameters.</p>
-			</subsection>
-			
-			<subsection name="Examples">
-				
-				<div class="auto-tabs">
-					<ul>
-						<li>XML</li>
-						<li>PHP</li>
-					</ul>
- 
-					<div class="tab-content" >
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+    <body>
+        <section name="LoggerAppenderNull">
+
+            <p>
+                <code>LoggerAppenderNull</code>
+                ignores all logging requests; it never outputs a message to any
+                device.
+            </p>
+
+            <subsection name="Layout">
+                <p>This appender does not require a layout.</p>
+            </subsection>
+
+            <subsection name="Parameters">
+                <p>This appender does not have any configurable parameters.</p>
+            </subsection>
+
+            <subsection name="Examples">
+
+                <div class="auto-tabs">
+                    <ul>
+                        <li>XML</li>
+                        <li>PHP</li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="default" class="LoggerAppenderNull" />
     <root>
@@ -54,9 +57,9 @@
     </root>
 </configuration>
 ]]></pre>
-						</div>
-						<div class="tab-pane">
-<pre class="prettyprint"><![CDATA[
+                        </div>
+                        <div class="tab-pane">
+                            <pre class="prettyprint"><![CDATA[
 array(
     'appenders' => array(
         'default' => array(
@@ -68,11 +71,11 @@ array(
     ),
 );
 ]]></pre>
-						</div>
-					</div>
-				</div>
-				
-			</subsection>
-		</section>
-	</body>
+                        </div>
+                    </div>
+                </div>
+
+            </subsection>
+        </section>
+    </body>
 </document>

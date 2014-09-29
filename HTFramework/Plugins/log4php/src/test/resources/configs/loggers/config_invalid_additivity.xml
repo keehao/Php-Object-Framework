@@ -20,11 +20,11 @@
         <layout class="LoggerLayoutSimple"/>
     </appender>
     <logger name="myLogger" additivity="4711">
-        <level value="warn" />
-        <appender_ref ref="default" />
+        <level value="warn"/>
+        <appender_ref ref="default"/>
     </logger>
     <root>
-        <level value="DEBUG" />
-        <appender_ref ref="default" />
+        <level value="DEBUG"/>
+        <appender_ref ref="default"/>
     </root>
 </configuration>
