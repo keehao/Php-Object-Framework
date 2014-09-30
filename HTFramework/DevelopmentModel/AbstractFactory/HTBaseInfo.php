@@ -8,22 +8,22 @@
 
 namespace HTFramework\DevelopmentModel\AbstractFactory;
 
-use HTFramework\StaticLib\HTStaticError;
-
-trait BaseInfo
+use HTFramework\Library\HTException;
+trait HTBaseInfo
 {
 
     /**
      * @param $property_name
      * @param $value
+     * @throws \HTFramework\Library\HTException
      * @desc 设置私有属性
      */
     public function __set($property_name, $value)
     {
-        if (isset($this->$property_name)) {
+        if (property_exists($this, $property_name)) {
             $this->$property_name = $value;
         } else {
-            HTStaticError::error_abstract_factory_info();
+            throw new HTException(__CLASS__);
         }
     }
 
@@ -34,7 +34,7 @@ trait BaseInfo
      */
     public function __get($property_name)
     {
-        if (isset($this->$property_name)) {
+        if (property_exists($this, $property_name)) {
             return ($this->$property_name);
         } else {
             return (null);

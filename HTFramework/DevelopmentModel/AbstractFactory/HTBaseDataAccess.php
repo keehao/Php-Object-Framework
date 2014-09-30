@@ -9,7 +9,7 @@
 namespace HTFramework\DevelopmentModel\AbstractFactory;
 
 
-class BaseDataAccess
+class HTBaseDataAccess
 {
 
 } 

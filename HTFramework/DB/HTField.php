@@ -6,7 +6,7 @@
  * Time: 下午4:55
  */
 
-namespace HTFramework;
+namespace HTFramework\DB;
 
 
 class HTField

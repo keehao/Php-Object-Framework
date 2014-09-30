@@ -9,7 +9,7 @@
 namespace HTFramework\DevelopmentModel\AbstractFactory;
 
 
-abstract class BaseBLL
+abstract class HTBaseBLL
 {
     /**
      * @desc 构造方法

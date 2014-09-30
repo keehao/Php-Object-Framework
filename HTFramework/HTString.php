@@ -7,7 +7,7 @@
  */
 
 namespace HTFramework;
-use HTFramework\StaticLib\HTStaticError;
+use HTFramework\Library\HTException;
 
 
 final class HTString
@@ -15,13 +15,18 @@ final class HTString
     private $string;
     private $current;
 
+    /**
+     * @param string $string
+     * @throws Library\HTException
+     * @desc 构造HTString
+     */
     public function __construct($string = '')
     {
         if (is_string($string)) {
             $this->string = $string;
             $this->current = $this->string;
         } else {
-            HTStaticError::error_type(__CLASS__);
+            throw new HTException(__CLASS__);
         }
     }
 

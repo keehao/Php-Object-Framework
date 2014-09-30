@@ -7,7 +7,7 @@
  */
 
 namespace HTFramework;
-use HTFramework\StaticLib\HTStaticError;
+use HTFramework\Library\HTException;
 use ArrayObject;
 
 final class HTArray extends ArrayObject
@@ -18,6 +18,7 @@ final class HTArray extends ArrayObject
      * @param null $input
      * @param int $flags
      * @param string $iterator_class
+     * @throws Library\HTException
      */
     public function __construct($input = null, $flags = 0, $iterator_class = "ArrayIterator")
     {
@@ -25,7 +26,7 @@ final class HTArray extends ArrayObject
             parent::__construct($input, $flags, $iterator_class);
             $this->current = $input;
         } else {
-            HTStaticError::error_type(__CLASS__);
+            throw new HTException(__CLASS__);
         }
     }
 

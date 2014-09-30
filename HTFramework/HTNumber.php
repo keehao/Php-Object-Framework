@@ -7,7 +7,7 @@
  */
 
 namespace HTFramework;
-use HTFramework\StaticLib\HTStaticError;
+use HTFramework\Library\HTException;
 
 final class HTNumber
 {
@@ -20,7 +20,7 @@ final class HTNumber
             $this->number = $number;
             $this->current = $this->number;
         } else {
-            HTStaticError::error_type(__CLASS__);
+            throw new HTException(__CLASS__);
         }
     }
 
