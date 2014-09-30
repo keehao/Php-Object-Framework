@@ -106,5 +106,9 @@ abstract class HTTable implements Iterator
         return (null);
     }
 
+    /**
+     * @return mixed
+     * @desc 加载数据
+     */
     abstract public function notify_access();
 }

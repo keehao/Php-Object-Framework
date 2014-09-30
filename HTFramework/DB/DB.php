@@ -39,6 +39,7 @@ class DB
     public function select()
     {
 
-        return new HTDatabase();
+        new HTBigDatabase();
+        new HTDatabase();
     }
 } 

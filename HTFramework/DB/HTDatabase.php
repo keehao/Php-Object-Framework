@@ -48,6 +48,10 @@ class HTDatabase extends HTTable
         return $this->count;
     }
 
+    /**
+     * @return mixed|void
+     * @desc 加载数据
+     */
     public function notify_access()
     {
         if (!$this->run && $this->delay) {
