@@ -25,9 +25,9 @@ abstract class HTTable implements Iterator
     {
         if (!is_null($records)) {
             $this->records = $records;
-            $this->total = count($records);
+            $this->total = count($this->records);
         } else {
-            $this->records = 0;
+            $this->records = array();
             $this->total = 0;
         }
         $this->pointer = 0;

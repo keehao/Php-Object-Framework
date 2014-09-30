@@ -9,9 +9,9 @@
 namespace HTFramework\DB;
 
 
-class DB extends HTDatabase
+class DB
 {
-    private static  $instance;
+    private static $instance;
 
     public static function &get_instance()
     {
@@ -21,8 +21,24 @@ class DB extends HTDatabase
         return self::$instance;
     }
 
-    public function __construct()
+    public function insert()
     {
-        parent::__construct();
+
+    }
+
+    public function delete()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function select()
+    {
+
+        return new HTDatabase();
     }
 } 
