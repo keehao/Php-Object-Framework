@@ -8,88 +8,50 @@
 
 namespace HTFramework\DB;
 
-use Iterator;
+use PDO;
+use PDOStatement;
 
-abstract class HTTable implements Iterator
+abstract class HTTable extends HTIterator
 {
-    protected $total;
+    /**
+     * @var array 数据集合
+     */
     protected $records;
 
-    private $pointer;
+
+    private $pdo_stmt;
+    private $pdo_stmt_count;
+    /**
+     * @var int 数据总和
+     */
+    private $count;
+    private $run;
 
     /**
-     * @param array $records
      * @desc 构造表
      */
-    public function __construct(array $records = null)
+    public function __construct(PDOStatement $stmt = null, PDOStatement $stmt_count = null)
     {
-        if (!is_null($records)) {
-            $this->records = $records;
-            $this->total = count($this->records);
-        } else {
-            $this->records = array();
-            $this->total = 0;
-        }
+        $this->total = 0;
         $this->pointer = 0;
-    }
+        $this->run = false;
+        $this->count = 0;
 
-    /**
-     * @desc 指针指到列表开头
-     */
-    public function rewind()
-    {
-        $this->pointer = 0;
-    }
-
-    /**
-     * @return mixed|null|void
-     * @desc 返回当前指针指向元素
-     */
-    public function current()
-    {
-        if ($this->pointer == $this->total) {
-            return (null);
+        if (!is_null($stmt)) {
+            $this->pdo_stmt = $stmt;
         }
-
-        return $this->get_record($this->pointer);
-    }
-
-    /**
-     * @return int|mixed
-     * @desc 返回当前指针
-     */
-    public function key()
-    {
-        return $this->pointer;
-    }
-
-    /**
-     * @return bool
-     * @desc 确定当前指针处有一个元素
-     */
-    public function valid()
-    {
-        if ($this->total > $this->pointer && 0 <= $this->pointer) {
-            return true;
-        } else {
-            return false;
+        if (!is_null($stmt_count)) {
+            $this->pdo_stmt_count = $stmt_count;
         }
     }
 
-    /**
-     * @desc 指针向前移动1位
-     */
-    public function prev()
+    public function get_count()
     {
-        $this->pointer > 0 ? --$this->pointer : 0;
-    }
-
-    /**
-     * @desc 指针向后移动1位
-     */
-    public function next()
-    {
-        $this->pointer < $this->total - 1 ? ++$this->pointer : $this->total;
+        if ($this->count == 0 && !is_null($this->pdo_stmt_count)) {
+            $this->count = $this->pdo_stmt_count->rowCount();
+            $this->pdo_stmt_count->closeCursor();
+        }
+        return $this->count;
     }
 
     /**
@@ -97,7 +59,7 @@ abstract class HTTable implements Iterator
      * @return null
      * @desc 获取HTRecord
      */
-    private function get_record($pointer)
+    public function get_record($pointer)
     {
         $this->notify_access();
         if (isset($this->records[$pointer])) {
@@ -107,8 +69,16 @@ abstract class HTTable implements Iterator
     }
 
     /**
-     * @return mixed
+     * @return mixed|void
      * @desc 加载数据
      */
-    abstract public function notify_access();
+    public function notify_access()
+    {
+        if (!$this->run) {
+            $this->pdo_stmt->execute();
+            $this->records = $this->pdo_stmt->fetchAll(PDO::FETCH_CLASS);
+            $this->total = count($this->records);
+            $this->run = false;
+        }
+    }
 }

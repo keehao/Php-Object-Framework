@@ -36,10 +36,13 @@ class DB
 
     }
 
-    public function select()
+    public function get_table()
+    {
+        new HTDatabase();
+    }
+
+    public function get_big_table()
     {
 
-        new HTBigDatabase();
-        new HTDatabase();
     }
 } 
