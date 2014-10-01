@@ -2,6 +2,8 @@
 include_once('HTFramework/HTString.php');
 include_once('HTFramework/HTNumber.php');
 include_once('HTFramework/HTArray.php');
+include_once('HTFramework/DB/HTIterator.php');
+
 include_once('HTFramework/DB/HTTable.php');
 
 include_once('HTFramework/DB/HTDatabase.php');
@@ -12,9 +14,9 @@ use HTFramework\DevelopmentModel\AbstractFactory\HTBaseInfo;
 use HTFramework\HTString;
 use HTFramework\HTArray;
 use HTFramework\HTNumber;
+use HTFramework\DB\HTIterator;
 use HTFramework\DB\HTTable;
 use HTFramework\DB\HTDatabase;
-
 $arr = new HTArray(array("aa","aaa"));
 $str = new HTString("abc");
 //echo $str . '1111111' . $str->strtoupper() . "\n";
@@ -42,3 +44,4 @@ class base2
 
 $base2 = new base2();
 
+echo floor(21%10);

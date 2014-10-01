@@ -99,10 +99,4 @@ abstract class HTIterator implements Iterator
      * @desc 获取HTRecord
      */
     abstract public function get_record($pointer);
-
-    /**
-     * @return mixed|void
-     * @desc 加载数据
-     */
-    abstract public function notify_access();
 }

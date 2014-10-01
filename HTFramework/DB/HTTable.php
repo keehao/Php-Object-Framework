@@ -10,6 +10,7 @@ namespace HTFramework\DB;
 
 use PDO;
 use PDOStatement;
+use HTFramework\Library\HTException;
 
 abstract class HTTable extends HTIterator
 {
@@ -18,37 +19,42 @@ abstract class HTTable extends HTIterator
      */
     protected $records;
 
-
     private $pdo_stmt;
     private $pdo_stmt_count;
-    /**
-     * @var int 数据总和
-     */
     private $count;
     private $run;
 
     /**
-     * @desc 构造表
+     * @param PDOStatement $stmt
+     * @param PDOStatement $stmt_count
+     * @throws \HTFramework\Library\HTException
+     * @desc 构造HTTable
      */
     public function __construct(PDOStatement $stmt = null, PDOStatement $stmt_count = null)
     {
+        if (is_null($stmt)) {
+            throw new HTException(__CLASS__);
+        }
         $this->total = 0;
         $this->pointer = 0;
         $this->run = false;
         $this->count = 0;
-
-        if (!is_null($stmt)) {
-            $this->pdo_stmt = $stmt;
-        }
+        $this->pdo_stmt = $stmt;
         if (!is_null($stmt_count)) {
             $this->pdo_stmt_count = $stmt_count;
         }
     }
 
-    public function get_count()
+    public function total()
+    {
+        return $this->total;
+    }
+
+    public function count()
     {
         if ($this->count == 0 && !is_null($this->pdo_stmt_count)) {
-            $this->count = $this->pdo_stmt_count->rowCount();
+            $this->pdo_stmt_count->execute();
+            $this->count = $this->pdo_stmt_count->fetchColumn(0);
             $this->pdo_stmt_count->closeCursor();
         }
         return $this->count;
@@ -72,13 +78,14 @@ abstract class HTTable extends HTIterator
      * @return mixed|void
      * @desc 加载数据
      */
-    public function notify_access()
+    private function notify_access()
     {
         if (!$this->run) {
             $this->pdo_stmt->execute();
             $this->records = $this->pdo_stmt->fetchAll(PDO::FETCH_CLASS);
+            $this->pdo_stmt->closeCursor();
             $this->total = count($this->records);
-            $this->run = false;
+            $this->run = true;
         }
     }
 }
