@@ -15,7 +15,6 @@ use HTFramework\Library\HTException;
 
 class HTBigTable extends HTIterator
 {
-
     private $temp_pointer;
     private $temp_records;
     private $records;

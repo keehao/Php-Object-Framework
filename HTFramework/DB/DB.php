@@ -12,6 +12,7 @@ namespace HTFramework\DB;
 class DB
 {
     private static $instance;
+    private $database;
 
     public static function &get_instance()
     {
@@ -21,28 +22,28 @@ class DB
         return self::$instance;
     }
 
+    public function __construct()
+    {
+        $this->database = new HTDatabase();
+    }
+
     public function insert()
     {
-
+        return new HTDatabase();
     }
 
     public function delete()
     {
-
+        return new HTDatabase();
     }
 
     public function update()
     {
-
+        return new HTDatabase();
     }
 
-    public function get_table()
+    public function select(HTSql $sql)
     {
-        new HTDatabase();
-    }
-
-    public function get_big_table()
-    {
-
+        return new HTDatabase();
     }
 } 
