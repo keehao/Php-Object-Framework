@@ -14,6 +14,14 @@ use HTFramework\HTArray;
 class HTSql
 {
     private $sql;
+    private $nexus = array(
+        'eq' => '=',
+        'ne' => '<>',
+        'le' => '<=',
+        'lt' => '<',
+        'ge' => '>=',
+        'gt' => '>',
+    );
 
     public function __construct()
     {
@@ -33,8 +41,9 @@ class HTSql
         $this->sql .= 'SELECT ';
         if (!is_null($field)) {
             for ($iterator = $field->getIterator(); $iterator->valid(); $iterator->next()) {
-                $this->sql .= $iterator->current() . ' ';
+                $this->sql .= $iterator->current()->select_field . ', ';
             }
+            $this->sql = substr($this->sql, 0, strlen($this->sql) - 1);
         } else {
             $this->sql .= '* ';
         }
@@ -46,28 +55,40 @@ class HTSql
         $this->sql .= 'FROM ';
         if (!is_null($table)) {
             for ($iterator = $table->getIterator(); $iterator->valid(); $iterator->next()) {
-                $this->sql .= $iterator->current() . ' ';
+                $this->sql .= $iterator->current()->table_name . ', ';
             }
+            $this->sql = substr($this->sql, 0, strlen($this->sql) - 2);
+            $this->sql .= ' ';
         } else {
             return false;
         }
         return $this;
     }
 
-    public function where($field = null)
+    public function where(HTField $field = null, $nexus = null)
     {
-        if (!is_null($field)) {
-            $this->sql .= $field . ' ';
+        if (!is_null($field) && !is_null($nexus)) {
+            $this->sql .= $field->field . $this->nexus[$nexus] . $field->variable . ' ';
             return $this;
         } else {
             return false;
         }
     }
 
-    public function _and($field = null)
+    public function _and(HTField $field = null, $nexus = null)
     {
-        if (!is_null($field)) {
-            $this->sql .= 'and ' . $field . ' ';
+        if (!is_null($field) && !is_null($nexus)) {
+            $this->sql .= 'and ' . $field->field . $this->nexus[$nexus] . $field->variable . ' ';
+            return $this;
+        } else {
+            return false;
+        }
+    }
+
+    public function _or(HTField $field = null, $nexus = null)
+    {
+        if (!is_null($field) && !is_null($nexus)) {
+            $this->sql .= 'or  ' . $field->field . $this->nexus[$nexus] . $field->variable . ' ';
             return $this;
         } else {
             return false;

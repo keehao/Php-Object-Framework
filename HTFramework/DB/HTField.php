@@ -11,5 +11,17 @@ namespace HTFramework\DB;
 
 class HTField
 {
+    public $select_field;
+    public $field;
+    public $variable;
+    public $type;
+
+    public function __construct($table_name, $field, $type = 'string')
+    {
+        $this->select_field = $table_name . '.' . $field . ' as ' . $field;
+        $this->variable = ':' . $field;
+        $this->field = $field;
+        $this->type = $type;
+    }
 
 } 

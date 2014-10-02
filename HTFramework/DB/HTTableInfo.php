@@ -3,14 +3,17 @@
  * Created by PhpStorm.
  * User: saligia
  * Date: 14-10-2
- * Time: 下午1:04
+ * Time: 下午5:37
  */
 
 namespace HTFramework\DB;
 
 
-class HTCursorTable
+class HTTableInfo
 {
 
+    public function __construct()
+    {
 
-}
+    }
+} 

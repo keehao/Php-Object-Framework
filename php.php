@@ -10,6 +10,7 @@ include_once('HTFramework/DB/HTDatabase.php');
 include_once('HTFramework/StaticLib/HTStaticError.php');
 include_once('HTFramework/Library/HTException.php');
 include_once('HTFramework/DevelopmentModel/AbstractFactory/HTBaseInfo.php');
+include_once('HTFramework/DB/HTSql.php');
 use HTFramework\DevelopmentModel\AbstractFactory\HTBaseInfo;
 use HTFramework\HTString;
 use HTFramework\HTArray;
@@ -17,6 +18,7 @@ use HTFramework\HTNumber;
 use HTFramework\DB\HTIterator;
 use HTFramework\DB\HTTable;
 use HTFramework\DB\HTDatabase;
+use HTFramework\DB\HTSql;
 $arr = new HTArray(array("aa","aaa"));
 $str = new HTString("abc");
 //echo $str . '1111111' . $str->strtoupper() . "\n";
@@ -44,4 +46,8 @@ class base2
 
 $base2 = new base2();
 
-echo floor(21%10);
+$sql = new HTSql();
+$sql->from(new HTArray(array(
+    'table1','table2'
+)));
+$sql->print_sql(true);
