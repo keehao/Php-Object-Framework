@@ -21,6 +21,8 @@ class HTSql
         'lt' => '<',
         'ge' => '>=',
         'gt' => '>',
+        'like' => 'like',
+        'in' => 'in',
     );
 
     public function __construct()
@@ -36,11 +38,11 @@ class HTSql
         }
     }
 
-    public function select(HTArray $field = null)
+    public function select(HTArray $fields = null)
     {
         $this->sql .= 'SELECT ';
-        if (!is_null($field)) {
-            for ($iterator = $field->getIterator(); $iterator->valid(); $iterator->next()) {
+        if (!is_null($fields)) {
+            for ($iterator = $fields->getIterator(); $iterator->valid(); $iterator->next()) {
                 $this->sql .= $iterator->current()->select_field . ', ';
             }
             $this->sql = substr($this->sql, 0, strlen($this->sql) - 1);
@@ -50,11 +52,11 @@ class HTSql
         return $this;
     }
 
-    public function from(HTArray $table)
+    public function from(HTArray $tables)
     {
         $this->sql .= 'FROM ';
-        if (!is_null($table)) {
-            for ($iterator = $table->getIterator(); $iterator->valid(); $iterator->next()) {
+        if (!is_null($tables)) {
+            for ($iterator = $tables->getIterator(); $iterator->valid(); $iterator->next()) {
                 $this->sql .= $iterator->current()->table_name . ', ';
             }
             $this->sql = substr($this->sql, 0, strlen($this->sql) - 2);
@@ -67,6 +69,7 @@ class HTSql
 
     public function where(HTField $field = null, $nexus = null)
     {
+        $this->sql .= 'WHERE ';
         if (!is_null($field) && !is_null($nexus)) {
             $this->sql .= $field->field . $this->nexus[$nexus] . $field->variable . ' ';
             return $this;
@@ -77,8 +80,9 @@ class HTSql
 
     public function _and(HTField $field = null, $nexus = null)
     {
+        $this->sql .= 'AND ';
         if (!is_null($field) && !is_null($nexus)) {
-            $this->sql .= 'and ' . $field->field . $this->nexus[$nexus] . $field->variable . ' ';
+            $this->sql .= $field->field . $this->nexus[$nexus] . $field->variable . ' ';
             return $this;
         } else {
             return false;
@@ -87,8 +91,9 @@ class HTSql
 
     public function _or(HTField $field = null, $nexus = null)
     {
+        $this->sql .= 'OR ';
         if (!is_null($field) && !is_null($nexus)) {
-            $this->sql .= 'or  ' . $field->field . $this->nexus[$nexus] . $field->variable . ' ';
+            $this->sql .= $field->field . $this->nexus[$nexus] . $field->variable . ' ';
             return $this;
         } else {
             return false;

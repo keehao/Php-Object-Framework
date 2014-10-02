@@ -12,7 +12,7 @@ namespace HTFramework\DB;
 class DB
 {
     private static $instance;
-    private $database;
+    private $ht_database;
 
     public static function &get_instance()
     {
@@ -24,7 +24,7 @@ class DB
 
     public function __construct()
     {
-        $this->database = new HTDatabase();
+        $this->ht_database = new HTDatabase();
     }
 
     public function insert()

@@ -11,9 +11,11 @@ namespace HTFramework\DB;
 
 class HTTableInfo
 {
+    public $primary_key;
+    public $table_name;
 
     public function __construct()
     {
-
+        $this->$property = new HTField('', '', 'id');
     }
-} 
+}
