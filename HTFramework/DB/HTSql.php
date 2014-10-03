@@ -14,6 +14,8 @@ use HTFramework\HTArray;
 class HTSql
 {
     private $sql;
+    private $type;
+    private $primary_key;
     private $nexus = array(
         'eq' => '=',
         'ne' => '<>',
@@ -21,13 +23,29 @@ class HTSql
         'lt' => '<',
         'ge' => '>=',
         'gt' => '>',
-        'like' => 'like',
-        'in' => 'in',
+        'like' => 'like'
     );
 
     public function __construct()
     {
         $this->sql = '';
+        $this->type = null;
+        $this->primary_key = null;
+    }
+
+    public function type()
+    {
+        return $this->type;
+    }
+
+    public function primary_key()
+    {
+        return $this->primary_key;
+    }
+
+    public function __toString()
+    {
+        return $this->sql;
     }
 
     public function print_sql($exit = false)

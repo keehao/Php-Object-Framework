@@ -12,7 +12,7 @@ use Exception;
 
 class HTException extends Exception{
 
-    public function __construct($class)
+    public function __construct($class,$e=null)
     {
         parent::__construct();
     }

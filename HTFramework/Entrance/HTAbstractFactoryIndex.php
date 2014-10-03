@@ -11,5 +11,8 @@ namespace HTFramework\Entrance;
 
 final class HTAbstractFactoryIndex
 {
+    public function run()
+    {
 
+    }
 } 

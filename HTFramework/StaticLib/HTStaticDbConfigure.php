@@ -17,4 +17,5 @@ class HTStaticDbConfigure
 
     const FIND_ALL_MAX = 1000;
 
+    const BIG_TABLE_SLEEP = 1;
 }

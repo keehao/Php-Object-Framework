@@ -15,6 +15,7 @@ class HTField
     public $field;
     public $variable;
     public $type;
+    public $value;
 
     public function __construct($table_name, $field, $type = 'string')
     {
@@ -22,5 +23,6 @@ class HTField
         $this->variable = ':' . $table_name . '_' . $field;
         $this->field = $field;
         $this->type = $type;
+        $this->value = null;
     }
 } 

@@ -12,4 +12,8 @@ namespace HTFramework\Entrance;
 final class HTMVCIndex
 {
 
+    public function run()
+    {
+
+    }
 } 

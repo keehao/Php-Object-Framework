@@ -11,23 +11,30 @@ namespace HTFramework\DB;
 
 class HTDatabase
 {
-    public function get_table()
+
+    public function __construct(array $database)
     {
 
     }
 
-    public function get_big_table()
+    public function insert()
     {
 
     }
 
-    public function get_cursor_table()
+    public function delete()
     {
 
     }
 
-    public function update_object()
+    public function update()
+    {
+
+    }
+
+    public function select()
     {
 
     }
 }
+

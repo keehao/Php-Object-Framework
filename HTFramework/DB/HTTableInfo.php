@@ -14,8 +14,16 @@ class HTTableInfo
     public $primary_key;
     public $table_name;
 
-    public function __construct()
+    /**
+     * @param array $table
+     * @desc 构造表信息模型
+     */
+    public function __construct(array $table)
     {
-        $this->$property = new HTField('', '', 'id');
+        $this->table_name = $table['table_name'];
+        $this->primary_key = new HTField($this->table_name,$table['primary_key'], $table['filed'][$table['primary_key']]);
+        foreach ($table['filed'] as $field => $type){
+            $this->$property = new HTField($this->table_name, $field, $type);
+        }
     }
 }

@@ -9,6 +9,18 @@
 namespace HTFramework\Entrance;
 
 
-final class HTExecutable {
+final class HTExecutable
+{
 
+    public function __construct($argv, $model)
+    {
+        switch ($model) {
+            case 'AbstractFactory' :
+
+                break;
+            case 'MVC' :
+
+                break;
+        }
+    }
 } 

@@ -104,6 +104,7 @@ class HTBigTable extends HTIterator
             $this->run = true;
             $this->last_pdo_stmt_pointer = $this->pdo_stmt_pointer;
             $this->total = count($this->records);
+            sleep(HTStaticDbConfigure::BIG_TABLE_SLEEP);
         }
     }
 }

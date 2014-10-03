@@ -9,10 +9,11 @@
 namespace HTFramework\DB;
 
 
+use HTFramework\StaticLib\HTStaticDbConfigure;
+
 class DB
 {
     private static $instance;
-    private $ht_database;
 
     public static function &get_instance()
     {
@@ -24,26 +25,41 @@ class DB
 
     public function __construct()
     {
-        $this->ht_database = new HTDatabase();
     }
 
-    public function insert()
+    public function database($database)
     {
-        return new HTDatabase();
+        return new HTDatabase(require_once($database));
     }
 
-    public function delete()
+    public function table($table)
     {
-        return new HTDatabase();
+        return new HTTableInfo(require_once($table));
     }
 
-    public function update()
+    public function sql()
     {
-        return new HTDatabase();
+
+    }
+
+    public function insert(HTTableInfo $table)
+    {
+
+    }
+
+    public function delete(HTTableInfo $table)
+    {
+
+    }
+
+    public function update(HTTableInfo $table)
+    {
+
     }
 
     public function select(HTSql $sql)
     {
-        return new HTDatabase();
     }
+
+
 } 
